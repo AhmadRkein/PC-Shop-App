@@ -1,5 +1,5 @@
 package models.users;
 
-public enum UserTypes {
+public enum UserType {
 	EMPLOYEE,CLIENT;
 }
