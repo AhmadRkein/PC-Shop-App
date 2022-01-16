@@ -1,5 +1,6 @@
 package models;
 
-public class PCBuilder {
-
+public abstract class PCBuilder {
+	
+	
 }
