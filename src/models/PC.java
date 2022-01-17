@@ -4,7 +4,7 @@ public class PC extends Product {
 	public CPU cpu;
 	public GPU gpu;
 	public Ram ram;
-	public Storage storage;
+	public HardDisk storage;
 	public Monitor monitor;
 	
 	public CPU getCpu() {
@@ -25,10 +25,10 @@ public class PC extends Product {
 	public void setRam(Ram ram) {
 		this.ram = ram;
 	}
-	public Storage getStorage() {
+	public HardDisk getStorage() {
 		return storage;
 	}
-	public void setStorage(Storage storage) {
+	public void setStorage(HardDisk storage) {
 		this.storage = storage;
 	}
 	public Monitor getMonitor() {
@@ -37,8 +37,6 @@ public class PC extends Product {
 	public void setMonitor(Monitor monitor) {
 		this.monitor = monitor;
 	}
-	
-	
 	
 	
 	
