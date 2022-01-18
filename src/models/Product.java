@@ -1,20 +1,17 @@
 package models;
 
 public abstract class Product {
-		private int id;
+		private int Id;
 		private String Name;
 		private String ProductType;
 		private String Brand;
-		private float price;
-		private String imagePath;
-		
-		
-		
+		private float Price;
+		private String ImagePath;
 		public int getId() {
-			return id;
+			return Id;
 		}
 		public void setId(int id) {
-			this.id = id;
+			Id = id;
 		}
 		public String getName() {
 			return Name;
@@ -35,16 +32,17 @@ public abstract class Product {
 			Brand = brand;
 		}
 		public float getPrice() {
-			return price;
+			return Price;
 		}
 		public void setPrice(float price) {
-			this.price = price;
+			Price = price;
 		}
 		public String getImagePath() {
-			return imagePath;
+			return ImagePath;
 		}
 		public void setImagePath(String imagePath) {
-			this.imagePath = imagePath;
+			ImagePath = imagePath;
 		}
+		
 		
 }

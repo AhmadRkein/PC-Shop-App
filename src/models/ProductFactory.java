@@ -9,19 +9,19 @@ public class ProductFactory {
 			return new Ram();
 		}
 		if(ProductType.equalsIgnoreCase("HARDDISK")) {
-			return new Ram();
+			return new HardDisk();
 		}
 		if(ProductType.equalsIgnoreCase("CPU")) {
-			return new Ram();
+			return new CPU();
 		}
 		if(ProductType.equalsIgnoreCase("GPU")) {
-			return new Ram();
+			return new GPU();
 		}
 		if(ProductType.equalsIgnoreCase("MONITOR")) {
-			return new Ram();
+			return new Monitor();
 		}
 		
-		if(ProductType.equalsIgnoreCase("GPU")) {
+		if(ProductType.equalsIgnoreCase("PC")) {
 			return new PC();
 		}
 		return null;

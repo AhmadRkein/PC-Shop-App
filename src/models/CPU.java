@@ -22,7 +22,4 @@ public class CPU extends Product {
 	public void setSpeed(int speed) {
 		Speed = speed;
 	}
-	
-	
-	
 }
