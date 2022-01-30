@@ -1,5 +1,5 @@
 create database PcShop
-use pcshop
+use PcShop
 create table cpu(
     id int not null,   
     name varchar(30) not null,
