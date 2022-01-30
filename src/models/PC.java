@@ -26,10 +26,10 @@ public class PC extends Product {
 	public void setRam(Ram ram) {
 		this.ram = ram;
 	}
-	public HardDisk getStorage() {
+	public Storage getStorage() {
 		return storage;
 	}
-	public void setStorage(HardDisk storage) {
+	public void setStorage(Storage storage) {
 		this.storage = storage;
 	}
 	public Monitor getMonitor() {

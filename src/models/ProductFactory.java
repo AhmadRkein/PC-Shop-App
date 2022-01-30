@@ -9,7 +9,7 @@ public class ProductFactory {
 			return new Ram();
 		}
 		if(ProductType.equalsIgnoreCase("HARDDISK")) {
-			return new HardDisk();
+			return new Storage();
 		}
 		if(ProductType.equalsIgnoreCase("CPU")) {
 			return new CPU();
