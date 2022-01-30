@@ -1,11 +1,11 @@
 package models;
 
 public class PC extends Product {
-	public CPU cpu;
-	public GPU gpu;
-	public Ram ram;
-	public Storage storage;
-	public Monitor monitor;
+	private CPU cpu;
+	private GPU gpu;
+	private Ram ram;
+	private Storage storage;
+	private Monitor monitor;
 	
 	public CPU getCpu() {
 		return cpu;
