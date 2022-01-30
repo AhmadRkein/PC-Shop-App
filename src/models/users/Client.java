@@ -1,24 +1,18 @@
 package models.users;
 
-import models.Cart;
-
 public class Client extends User {
-
-	protected Cart _cart;
+	public Client(String un, String pw, String fn,String ln) {
+		super(un, pw, fn,ln);
+	}
 	
-	public Client(String username, String name, char gender, String pass) {
-		super(username, name, gender, pass);
-		// TODO Auto-generated constructor stub
+	
+	public void BuyProduct() {
+		
 	}
 
-	@Override
-	public UserType getUserType() {
-		// TODO Auto-generated method stub
-		return UserType.CLIENT;
-	}
 
 	@Override
-	public boolean isAdmin() {
+	public Boolean isAdmin() {
 		return false;
 	}
 

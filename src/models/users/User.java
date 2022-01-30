@@ -1,44 +1,52 @@
 package models.users;
 
 public abstract class User {
-	protected String username;
-	protected String name;
-	protected String password;	
-	protected char gender;
+
+	private String username;
+	private String password;
+	private String FirstName;
+	private String LastName;	
 	
-	public User(String username, String name, char gender, String pass) {
-		this.username = username;
-		this.name = name;
-		this.password = pass;
-		this.gender = gender;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setPass(String pass) {
-		this.password = pass;
-	}
-
-	public void setGender(char gender) {
-		this.gender = gender;
+	public User(String un, String pw, String FN, String LN) {
+		username = un;
+		password = pw;
+		FirstName = FN;
+		LastName = LN;
 	}
 	
 
-	public String getName() {
-		return name;
+	public  String getusername() {
+		return username;
+		
 	}
 
-	public String getPass() {
+	public  String getpassword() {
 		return password;
+		
 	}
 
-	public char getGender() {
-		return gender;
+	public  String getname() {
+		return FirstName + " " + LastName;
+		
 	}
-
-
-	public abstract UserType getUserType();
-	public abstract boolean isAdmin();
+	
+	public abstract Boolean isAdmin();
+	
+	private void Setpassword(String pw) {
+		password = pw;
+	}
+	
+	private void Setname(String fn, String ln) {
+		FirstName = fn;
+		LastName = ln;
+		
+	}
+	
+	public void EditInfo(String username,String password, String FN,String LN) {
+		Setpassword(password);
+		Setname(FN, LN);
+		
+	}
+	
+	
 }

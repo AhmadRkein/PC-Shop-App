@@ -1,27 +1,32 @@
 package models.users;
 
-public class Employee extends User {
-	private boolean isadmin;
+public class Employee extends User{
+	private Boolean isadmin;
 	
-	public Employee(String username, String name, char gender, String pass) {
-		super(username, name, gender, pass);
+	public Employee(String un, String pw, String fn,String ln) {
+		super(un, pw, fn, ln);
 		isadmin = false;
 	}
 	
-	public Employee(String username, String name, char gender, String pass, boolean isadmin) {
-		super(username, name, gender, pass);
-		this.isadmin = isadmin;
+	public Employee(String un, String pw, String fn,String ln, Boolean isAdmin) {
+		super(un, pw, fn, ln);
+		isadmin = isAdmin;
 	}
 
-
-	@Override
-	public UserType getUserType() {
-		return UserType.EMPLOYEE;
+	public void AddProduct() {
+		
 	}
 	
+	public void EditProduct() {
+		
+	}
+
 	@Override
-	public boolean isAdmin() {
+	public Boolean isAdmin() {
+		// TODO Auto-generated method stub
 		return isadmin;
 	}
+	
+	
 
 }
