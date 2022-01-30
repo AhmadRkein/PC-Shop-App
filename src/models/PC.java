@@ -5,7 +5,7 @@ public class PC extends Product {
 	private CPU cpu;
 	private GPU gpu;
 	private Ram ram;
-	private Storage storage;
+	private HardDisk storage;
 	private Monitor monitor;
 	
 	public CPU getCpu() {

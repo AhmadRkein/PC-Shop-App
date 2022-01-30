@@ -34,7 +34,7 @@ public class BudgetPCBuilder implements PCBuilder {
 
 	@Override
 	public void BuildStorage() {
-		Storage storage = (Storage)ProductFlyWeight.getProductById(StorageID);
+		HardDisk storage = (HardDisk)ProductFlyWeight.getProductById(StorageID);
 		_pc.setStorage(storage);
 	}
 
