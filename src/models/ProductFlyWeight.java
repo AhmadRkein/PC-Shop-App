@@ -3,15 +3,63 @@ package models;
 import java.util.HashMap;
 
 public class ProductFlyWeight {
-	public static final HashMap<Integer, Product> productMap = new HashMap<Integer, Product>();
-
-	public static Product getProductById(int pid) {
-		Product product = productMap.get(pid);
-		if (product == null) {
-			// TODO get Product from database
-//			product = DBModel.getInstance().getProductByTID(pid);
-			productMap.put(pid, product);
+	public static final HashMap<Integer, Product> CPUMap = new HashMap<Integer, Product>();
+	public static final HashMap<Integer, Product> GPUMap = new HashMap<Integer, Product>();
+	public static final HashMap<Integer, Product> RAMMap = new HashMap<Integer, Product>();
+	public static final HashMap<Integer, Product> STORAGEMap = new HashMap<Integer, Product>();
+	public static final HashMap<Integer, Product> MONITORMap = new HashMap<Integer, Product>();
+	public static final HashMap<Integer, Product> PCMap = new HashMap<Integer, Product>();
+	
+	
+	public static Product getProductById(int pid, ProductType t) {
+		Product p = null;
+		
+		switch (t) {
+		case CPU:
+			p = CPUMap.get(pid);
+			break;
+		case GPU:
+			p = GPUMap.get(pid);
+			break;
+		case RAM:
+			p = RAMMap.get(pid);
+			break;
+		case HARDDISK:
+			p = STORAGEMap.get(pid);
+			break;
+		case MONITOR:
+			p = MONITORMap.get(pid);
+			break;
+		case PC:
+			p = PCMap.get(pid);
+			break;
 		}
-		return product;
+		
+		if (p == null) {
+			// TODO get Product from database
+			p = DBModel.getInstance().getProductById(t.name(), pid);
+			
+			switch (t) {
+			case CPU:
+				CPUMap.put(pid, p);
+				break;
+			case GPU:
+				p = GPUMap.put(pid, p);
+				break;
+			case RAM:
+				p = RAMMap.put(pid, p);
+				break;
+			case HARDDISK:
+				p = STORAGEMap.put(pid, p);
+				break;
+			case MONITOR:
+				p = MONITORMap.put(pid, p);
+				break;
+			case PC:
+				p = PCMap.put(pid, p);
+				break;
+			}
+		}
+		return p;
 	}
 }

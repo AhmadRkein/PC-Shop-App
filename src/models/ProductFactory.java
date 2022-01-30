@@ -1,30 +1,53 @@
 package models;
 
+
+import javafx.scene.image.Image;
+
 public class ProductFactory {
+	private static final Image IMAGE_CPU = new Image(
+			ProductFactory.class.getResource("../resources/images/cpu.png").toString());
+	private static final Image IMAGE_GPU = new Image(
+			ProductFactory.class.getResource("../resources/images/vga.png").toString());;
+	private static final Image IMAGE_HDD = new Image(
+			ProductFactory.class.getResource("../resources/images/hdd.png").toString());;
+	private static final Image IMAGE_MONITOR = new Image(
+			ProductFactory.class.getResource("../resources/images/monitor.png").toString());
+	private static final Image IMAGE_RAM = new Image(
+			ProductFactory.class.getResource("../resources/images/ram.png").toString());
+	private static final Image IMAGE_PC = new Image(
+			ProductFactory.class.getResource("../resources/images/pc.png").toString());
+
+	
 	public Product GenerateProduct(String ProductType) {
+		Product p = null;
 		if(ProductType == null) {
-			return null;
+			return p;
 		}
-		if(ProductType.equalsIgnoreCase("RAM")) {
-			return new Ram();
+		else if(ProductType.equalsIgnoreCase("RAM")) {
+			p = new Ram();
+			p.setImage(IMAGE_RAM);
 		}
-		if(ProductType.equalsIgnoreCase("HARDDISK")) {
-			return new HardDisk();
+		else if(ProductType.equalsIgnoreCase("HARDDISK")) {
+			p = new HardDisk();
+			p.setImage(IMAGE_HDD);
 		}
-		if(ProductType.equalsIgnoreCase("CPU")) {
-			return new CPU();
+		else if(ProductType.equalsIgnoreCase("CPU")) {
+			p = new CPU();
+			p.setImage(IMAGE_CPU);
 		}
-		if(ProductType.equalsIgnoreCase("GPU")) {
-			return new GPU();
+		else if(ProductType.equalsIgnoreCase("GPU")) {
+			p = new GPU();
+			p.setImage(IMAGE_GPU);
 		}
-		if(ProductType.equalsIgnoreCase("MONITOR")) {
-			return new Monitor();
+		else if(ProductType.equalsIgnoreCase("MONITOR")) {
+			p = new Monitor();
+			p.setImage(IMAGE_MONITOR);
 		}
-		
-		if(ProductType.equalsIgnoreCase("PC")) {
-			return new PC();
+		else if(ProductType.equalsIgnoreCase("PC")) {
+			p = new PC();
+			p.setImage(IMAGE_PC);
 		}
-		return null;
+		return p;
 	}
 
 }

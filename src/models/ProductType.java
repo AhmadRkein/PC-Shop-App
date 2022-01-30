@@ -1,5 +1,5 @@
 package models;
 
 public enum ProductType {
-	CPU,GPU,RAM,STORAGE,MONITOR,FULLPC;
+	CPU,GPU,RAM,HARDDISK,MONITOR,PC;
 }

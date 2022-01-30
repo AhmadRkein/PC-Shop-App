@@ -2,9 +2,9 @@ USE [PcShop]
 GO
 
 Create View Users as
-SELECT        userName, password, firstname, lastName, "C" as UserType
+SELECT        username, password, firstName, lastName, 'C' as UserType, 0 as isAdmin
 FROM            client
 union
-SELECT        userName, password, firstname, lastName, "E" as UserType
+SELECT        username, password, firstName, lastName, 'E' as UserType, isAdmin
 FROM            employee
 

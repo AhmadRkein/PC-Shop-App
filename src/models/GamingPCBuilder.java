@@ -15,32 +15,32 @@ public class GamingPCBuilder implements PCBuilder {
 	
 	@Override
 	public void BuildCPU() {
-		CPU cpu = (CPU)ProductFlyWeight.getProductById(CPUID);
+		CPU cpu = (CPU)ProductFlyWeight.getProductById(CPUID,ProductType.CPU);
 		_pc.setCpu(cpu);
 
 	}
 
 	@Override
 	public void BuildGPU() {
-		GPU gpu = (GPU)ProductFlyWeight.getProductById(GPUID);
+		GPU gpu = (GPU)ProductFlyWeight.getProductById(GPUID,ProductType.GPU);
 		_pc.setGpu(gpu);
 	}
 
 	@Override
 	public void BuildRam() {
-		Ram ram = (Ram)ProductFlyWeight.getProductById(RAMID);
+		Ram ram = (Ram)ProductFlyWeight.getProductById(RAMID,ProductType.RAM);
 		_pc.setRam(ram);
 	}
 
 	@Override
 	public void BuildStorage() {
-		HardDisk storage = (HardDisk)ProductFlyWeight.getProductById(StorageID);
+		HardDisk storage = (HardDisk)ProductFlyWeight.getProductById(StorageID,ProductType.HARDDISK);
 		_pc.setStorage(storage);
 	}
 
 	@Override
 	public void BuildMonitor() {
-		Monitor monitor = (Monitor)ProductFlyWeight.getProductById(MonitorID);
+		Monitor monitor = (Monitor)ProductFlyWeight.getProductById(MonitorID,ProductType.MONITOR);
 		_pc.setMonitor(monitor);
 	}
 

@@ -3,6 +3,10 @@ package models;
 import java.sql.*;
 import java.util.ArrayList;
 
+import models.users.Client;
+import models.users.Employee;
+import models.users.User;
+
 
 public class DBModel {
     private static DBModel _instance;
@@ -69,31 +73,39 @@ public class DBModel {
     }
 
 
-    public int SignIn(String userName,String password){//returns 1 for client, 2 for employee, 0 if no user exist
+    public User SignIn(String userName,String password){//returns 1 for client, 2 for employee, 0 if no user exist
         try {
             Statement statement = con.createStatement();
             String sql=String.format("select * from client where userName=%s && password=%s",userName,password);
             ResultSet rs= statement.executeQuery(sql);
             if(rs.next()){
-                statement.close();
-                return 1;//client
+//                return 1;//client
+                String fn = rs.getString("firstName");
+                String ln = rs.getString("lastName");
+            	statement.close();
+                return new Client(userName, password, fn, ln);
             }
             else{
                 sql=String.format("select * from employee where userName=%s && password=%s",userName,password);
                 rs=statement.executeQuery(sql);
                 if(rs.next()){
-                    statement.close();
-                    return 2;//employee
+//                  return 2;//employee
+                    String fn = rs.getString("firstName");
+                    String ln = rs.getString("lastName");
+                    Boolean isadmin = rs.getBoolean("isAdmin");
+                	statement.close();
+                    return new Employee(userName, password, fn, ln, isadmin);
+                    
                 }
                 else{
                     statement.close();
-                    return 0;
+                    return null;
                 }
             }
         }catch (SQLException e) {
             e.printStackTrace();
         }
-        return 0;
+        return null;
     }
 
 
@@ -109,13 +121,11 @@ public class DBModel {
             String name=rs.getString("name");
             String brand=rs.getString("brand");
             Float price=rs.getFloat("price");
-            String image=rs.getString("image");
             product=productFactory.GenerateProduct(type);
             product.setId(id);
             product.setName(name);
             product.setBrand(brand);
             product.setPrice(price);
-            product.setImagePath(image);
             if(type.equalsIgnoreCase("cpu")){
                 int coresNb=rs.getInt("coresNb");
                 int freq=rs.getInt("freq");
@@ -194,7 +204,6 @@ public class DBModel {
             String name=rs.getString("name");
             String brand=rs.getString("brand");
             Float price=rs.getFloat("price");
-            String image=rs.getString("image");
             int coresNb=rs.getInt("coresNb");
             int freq=rs.getInt("freq");
             CPU cpu= (CPU) f.GenerateProduct("cpu");
@@ -202,7 +211,6 @@ public class DBModel {
             cpu.setName(name);
             cpu.setBrand(brand);
             cpu.setPrice(price);
-            cpu.setImagePath(image);
             cpu.setFreq(freq);
             cpu.setCoresNb(coresNb);
             list.add(cpu);
@@ -223,7 +231,6 @@ public class DBModel {
                 String name=rs.getString("name");
                 String brand=rs.getString("brand");
                 Float price=rs.getFloat("price");
-                String image=rs.getString("image");
                 int clockspeed=rs.getInt("clockspeed");
                 int vram =rs.getInt("vram");
                 String busType =rs.getString("busType");
@@ -233,7 +240,6 @@ public class DBModel {
                 p.setName(name);
                 p.setBrand(brand);
                 p.setPrice(price);
-                p.setImagePath(image);
                 p.setClockSpeed(clockspeed);
                 p.setVramSize(vram);
                 p.setBusType(busType);
@@ -257,7 +263,6 @@ public class DBModel {
                 String name=rs.getString("name");
                 String brand=rs.getString("brand");
                 Float price=rs.getFloat("price");
-                String image=rs.getString("image");
                 int size =rs.getInt("size");
                 boolean dram=rs.getBoolean("dram");
                 Ram p= (Ram) f.GenerateProduct("ram");
@@ -266,7 +271,6 @@ public class DBModel {
                 p.setName(name);
                 p.setBrand(brand);
                 p.setPrice(price);
-                p.setImagePath(image);
                 p.setDram(dram);
                 p.setSize(size);
                 list.add(p);
@@ -289,7 +293,6 @@ public class DBModel {
                 String name=rs.getString("name");
                 String brand=rs.getString("brand");
                 Float price=rs.getFloat("price");
-                String image=rs.getString("image");
                 int size=rs.getInt("size");
                 int resolution =rs.getInt("resolution");
                 Monitor p= (Monitor) f.GenerateProduct("monitor");
@@ -298,7 +301,6 @@ public class DBModel {
                 p.setName(name);
                 p.setBrand(brand);
                 p.setPrice(price);
-                p.setImagePath(image);
                 p.setSize(size);
                 p.setResolution(resolution);
                 list.add(p);
@@ -322,7 +324,6 @@ public class DBModel {
                 String name=rs.getString("name");
                 String brand=rs.getString("brand");
                 Float price=rs.getFloat("price");
-                String image=rs.getString("image");
                 int storage=rs.getInt("storage");
                 HardDisk p= (HardDisk) f.GenerateProduct("harddisk");
 
@@ -330,7 +331,6 @@ public class DBModel {
                 p.setName(name);
                 p.setBrand(brand);
                 p.setPrice(price);
-                p.setImagePath(image);
                 p.setStorage(storage);
                 list.add(p);
             }
@@ -352,7 +352,6 @@ public class DBModel {
                 String name=rs.getString("name");
                 String brand=rs.getString("brand");
                 Float price=rs.getFloat("price");
-                String image=rs.getString("image");
                 int cpuId=rs.getInt("cpuId");
                 int gpuId=rs.getInt("gpuId");
                 int ramId=rs.getInt("ramId");
@@ -364,7 +363,6 @@ public class DBModel {
                 p.setName(name);
                 p.setBrand(brand);
                 p.setPrice(price);
-                p.setImagePath(image);
                 p.setCpu((CPU)getProductById("cpu",cpuId));
                 p.setGpu((GPU)getProductById("gpu",gpuId));
                 p.setRam((Ram) getProductById("ram",ramId));
@@ -389,7 +387,7 @@ public class DBModel {
     public void addCpu(CPU cpu){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into cpu values ('%s','%s',%f,'%s',%d,%d)",cpu.getName(),cpu.getBrand(),cpu.getPrice(),cpu.getImagePath(),cpu.getCoresNb(),cpu.getFreq());
+            String sql=String.format("insert into cpu values ('%s','%s',%f,'%s',%d,%d)",cpu.getName(),cpu.getBrand(),cpu.getPrice(),cpu.getImage().getUrl(),cpu.getCoresNb(),cpu.getFreq());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added CPU");
@@ -403,7 +401,7 @@ public class DBModel {
     public void addGpu(GPU gpu){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into gpu values ('%s','%s',%f,'%s',%d,%d,'%s')",gpu.getName(),gpu.getBrand(),gpu.getPrice(),gpu.getImagePath(),gpu.getClockSpeed(),gpu.getVramSize(),gpu.getBusType());
+            String sql=String.format("insert into gpu values ('%s','%s',%f,'%s',%d,%d,'%s')",gpu.getName(),gpu.getBrand(),gpu.getPrice(),gpu.getImage().getUrl(),gpu.getClockSpeed(),gpu.getVramSize(),gpu.getBusType());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added GPU");
@@ -414,7 +412,7 @@ public class DBModel {
     public void addRam(Ram ram){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,'%s',%d,%d)",ram.getName(),ram.getBrand(),ram.getPrice(),ram.getImagePath(),ram.getSize(),ram.isDram());
+            String sql=String.format("insert into ram values ('%s','%s',%f,'%s',%d,%d)",ram.getName(),ram.getBrand(),ram.getPrice(),ram.getImage().getUrl(),ram.getSize(),ram.isDram());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added Ram");
@@ -425,7 +423,7 @@ public class DBModel {
     public void addMonitor(Monitor m){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,'%s',%d,%d)",m.getName(),m.getBrand(),m.getPrice(),m.getImagePath(),m.getSize(),m.getResolution());
+            String sql=String.format("insert into ram values ('%s','%s',%f,'%s',%d,%d)",m.getName(),m.getBrand(),m.getPrice(),m.getImage().getUrl(),m.getSize(),m.getResolution());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added Monitor");
@@ -436,7 +434,7 @@ public class DBModel {
     public void addHardDisk(HardDisk h){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,'%s',%d)",h.getName(),h.getBrand(),h.getPrice(),h.getImagePath(),h.getStorage());
+            String sql=String.format("insert into ram values ('%s','%s',%f,'%s',%d)",h.getName(),h.getBrand(),h.getPrice(),h.getImage().getUrl(),h.getStorage());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added hardDisk");

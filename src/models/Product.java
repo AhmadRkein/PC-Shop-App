@@ -1,4 +1,5 @@
 package models;
+import javafx.scene.image.Image;
 
 public abstract class Product {
 		private int Id;
@@ -6,7 +7,7 @@ public abstract class Product {
 		private String ProductType;
 		private String Brand;
 		private float Price;
-		private String ImagePath;
+		private Image image;
 		public int getId() {
 			return Id;
 		}
@@ -37,11 +38,11 @@ public abstract class Product {
 		public void setPrice(float price) {
 			Price = price;
 		}
-		public String getImagePath() {
-			return ImagePath;
+		public Image getImage() {
+			return image;
 		}
-		public void setImagePath(String imagePath) {
-			ImagePath = imagePath;
+		public void setImage(Image im) {
+			image = im;
 		}
 		
 		
