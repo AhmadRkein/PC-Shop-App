@@ -6,15 +6,17 @@ import java.util.ArrayList;
 
 public class DBModel {
     private static DBModel _instance;
-    private DBModel() {}
-    private Connection con =createConnection();
+    private DBModel() {
+    	con =createConnection();
+    }
+    private Connection con;
     public static DBModel getInstance() {
         if (_instance == null) {
             _instance = new DBModel();
         }
         return _instance;
     }
-    public static Connection createConnection() {
+    private static Connection createConnection() {
         String server = "nasser-aspiree5576g";  //replace
         String username="SA";                  //with
         String password="Ameno1234@";         //your own info
