@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="JavaFx">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../../../Program Files/Java/javafx-sdk-17.0.1/lib" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/../../../../../../Program Files/Java/javafx-sdk-17.0.1/javafx-17.0.2-javadoc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/Java/javafx-sdk-17.0.1/src.zip!/javafx.base" />
+      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/Java/javafx-sdk-17.0.1/src.zip!/javafx.controls" />
+      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/Java/javafx-sdk-17.0.1/src.zip!/javafx.fxml" />
+      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/Java/javafx-sdk-17.0.1/src.zip!/javafx.graphics" />
+      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/Java/javafx-sdk-17.0.1/src.zip!/javafx.media" />
+      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/Java/javafx-sdk-17.0.1/src.zip!/javafx.swing" />
+      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/Java/javafx-sdk-17.0.1/src.zip!/javafx.web" />
+      <root url="file://$PROJECT_DIR$/../../../../../../Program Files/Java/javafx-sdk-17.0.1" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../../../Program Files/Java/javafx-sdk-17.0.1/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../../../Program Files/Java/javafx-sdk-17.0.1" recursive="false" type="SOURCES" />
+  </library>
+</component>
