@@ -76,7 +76,7 @@ public class DBModel {
     public User SignIn(String userName,String password){//returns 1 for client, 2 for employee, 0 if no user exist
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("select * from client where userName=%s && password=%s",userName,password);
+            String sql=String.format("select * from client where username='%s' AND password='%s'",userName,password);
             ResultSet rs= statement.executeQuery(sql);
             if(rs.next()){
 //                return 1;//client
@@ -86,15 +86,15 @@ public class DBModel {
                 return new Client(userName, password, fn, ln);
             }
             else{
-                sql=String.format("select * from employee where userName=%s && password=%s",userName,password);
+                sql=String.format("select * from employee where userName='%s' AND password='%s'",userName,password);
                 rs=statement.executeQuery(sql);
                 if(rs.next()){
 //                  return 2;//employee
                     String fn = rs.getString("firstName");
                     String ln = rs.getString("lastName");
-                    Boolean isadmin = rs.getBoolean("isAdmin");
+                    Boolean isAdmin = rs.getBoolean("isAdmin");
                 	statement.close();
-                    return new Employee(userName, password, fn, ln, isadmin);
+                    return new Employee(userName, password, fn, ln, isAdmin);
                     
                 }
                 else{
@@ -387,7 +387,7 @@ public class DBModel {
     public void addCpu(CPU cpu){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into cpu values ('%s','%s',%f,'%s',%d,%d)",cpu.getName(),cpu.getBrand(),cpu.getPrice(),cpu.getImage().getUrl(),cpu.getCoresNb(),cpu.getFreq());
+            String sql=String.format("insert into cpu values ('%s','%s',%f,'%s',%d,%d)",cpu.getName(),cpu.getBrand(),cpu.getPrice(),cpu.getProductType(),cpu.getCoresNb(),cpu.getFreq());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added CPU");
