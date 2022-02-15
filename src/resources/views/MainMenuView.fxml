@@ -35,9 +35,9 @@
                   </ImageView>
                </center>
                <bottom>
-                  <Label alignment="CENTER" text="User Name" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Label fx:id="usernameLabel" alignment="CENTER" text="User Name" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
-                        <Font name="Tahoma" size="30.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                </bottom>

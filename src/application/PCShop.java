@@ -14,18 +14,11 @@ import models.users.User;
 
 
 public class PCShop extends Application {
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-//			DBModel dbModel=DBModel.getInstance();
-//			ProductFactory pf=new ProductFactory();
-//			CPU c=(CPU) pf.GenerateProduct("cpu");
-//			c.setCoresNb(2);
-//			c.setFreq(4);
-//			c.setSpeed(2);
-//			c.setName("intel");
-//			c.setPrice(200);
-//			dbModel.addCpu(c);
+
 			Parent root = FXMLLoader.load(getClass().getResource("../resources/views/LoginMenuView.fxml"));
 			primaryStage.setScene(new Scene(root));
 			primaryStage.initStyle(StageStyle.DECORATED);
