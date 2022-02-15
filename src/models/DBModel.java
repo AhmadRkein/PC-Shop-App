@@ -11,7 +11,7 @@ import models.users.User;
 public class DBModel {
     private static DBModel _instance;
     private DBModel() {
-    	con =createConnection();
+        con =createConnection();
     }
     private Connection con;
     public static DBModel getInstance() {
@@ -76,26 +76,26 @@ public class DBModel {
     public User SignIn(String userName,String password){//returns 1 for client, 2 for employee, 0 if no user exist
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("select * from client where userName=%s && password=%s",userName,password);
+            String sql=String.format("select * from client where username='%s' AND password='%s'",userName,password);
             ResultSet rs= statement.executeQuery(sql);
             if(rs.next()){
 //                return 1;//client
                 String fn = rs.getString("firstName");
                 String ln = rs.getString("lastName");
-            	statement.close();
+                statement.close();
                 return new Client(userName, password, fn, ln);
             }
             else{
-                sql=String.format("select * from employee where userName=%s && password=%s",userName,password);
+                sql=String.format("select * from employee where userName='%s' AND password='%s'",userName,password);
                 rs=statement.executeQuery(sql);
                 if(rs.next()){
 //                  return 2;//employee
                     String fn = rs.getString("firstName");
                     String ln = rs.getString("lastName");
-                    Boolean isadmin = rs.getBoolean("isAdmin");
-                	statement.close();
-                    return new Employee(userName, password, fn, ln, isadmin);
-                    
+                    Boolean isAdmin = rs.getBoolean("isAdmin");
+                    statement.close();
+                    return new Employee(userName, password, fn, ln, isAdmin);
+
                 }
                 else{
                     statement.close();
@@ -174,11 +174,11 @@ public class DBModel {
                 int monitorId=rs.getInt("monitorId");
                 int hardDiskId=rs.getInt("hardDiskId");
                 PC pc=(PC)product;
-                    CPU cpu= (CPU) getProductById("cpu",cpuId);
-                    GPU gpu= (GPU) getProductById("gpu",gpuId);
-                    Ram ram= (Ram) getProductById("ram",ramId);
-                    Monitor monitor= (Monitor) getProductById("monitor",monitorId);
-                    HardDisk hardDisk= (HardDisk) getProductById("Harddisk" ,hardDiskId);
+                CPU cpu= (CPU) getProductById("cpu",cpuId);
+                GPU gpu= (GPU) getProductById("gpu",gpuId);
+                Ram ram= (Ram) getProductById("ram",ramId);
+                Monitor monitor= (Monitor) getProductById("monitor",monitorId);
+                HardDisk hardDisk= (HardDisk) getProductById("Harddisk" ,hardDiskId);
                 pc.setCpu(cpu);
                 pc.setGpu(gpu);
                 pc.setMonitor(monitor);
@@ -197,25 +197,25 @@ public class DBModel {
         ArrayList<CPU> list=new ArrayList<CPU>();
         ProductFactory f=new ProductFactory();
         try{
-        Statement statement=con.createStatement();
-        ResultSet rs= statement.executeQuery("select * from cpu");
-        while(rs.next()){
-            int id=rs.getInt("id");
-            String name=rs.getString("name");
-            String brand=rs.getString("brand");
-            Float price=rs.getFloat("price");
-            int coresNb=rs.getInt("coresNb");
-            int freq=rs.getInt("freq");
-            CPU cpu= (CPU) f.GenerateProduct("cpu");
-            cpu.setId(id);
-            cpu.setName(name);
-            cpu.setBrand(brand);
-            cpu.setPrice(price);
-            cpu.setFreq(freq);
-            cpu.setCoresNb(coresNb);
-            list.add(cpu);
-        }
-    }catch (SQLException e){
+            Statement statement=con.createStatement();
+            ResultSet rs= statement.executeQuery("select * from cpu");
+            while(rs.next()){
+                int id=rs.getInt("id");
+                String name=rs.getString("name");
+                String brand=rs.getString("brand");
+                Float price=rs.getFloat("price");
+                int coresNb=rs.getInt("coresNb");
+                int freq=rs.getInt("freq");
+                CPU cpu= (CPU) f.GenerateProduct("cpu");
+                cpu.setId(id);
+                cpu.setName(name);
+                cpu.setBrand(brand);
+                cpu.setPrice(price);
+                cpu.setFreq(freq);
+                cpu.setCoresNb(coresNb);
+                list.add(cpu);
+            }
+        }catch (SQLException e){
             e.printStackTrace();
         }
         return list;
@@ -387,7 +387,7 @@ public class DBModel {
     public void addCpu(CPU cpu){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into cpu values ('%s','%s',%f,'%s',%d,%d)",cpu.getName(),cpu.getBrand(),cpu.getPrice(),cpu.getImage().getUrl(),cpu.getCoresNb(),cpu.getFreq());
+            String sql=String.format("insert into cpu values ('%s','%s',%f,'%s',%d,%d)",cpu.getName(),cpu.getBrand(),cpu.getPrice(),cpu.getProductType(),cpu.getCoresNb(),cpu.getFreq());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added CPU");

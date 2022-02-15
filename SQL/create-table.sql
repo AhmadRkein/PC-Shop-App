@@ -1,11 +1,7 @@
-use master
 create database PcShop
-go
-use PcShop
-go
-
+use pcshop
 create table cpu(
-    id int not null,   
+    id int IDENTITY(1,1) not null,   
     name varchar(30) not null,
     brand char(10) null,
     price FLOAT null,
@@ -14,8 +10,9 @@ create table cpu(
     freq FLOAT not null,
     PRIMARY KEY (id)
 )
+drop table cpu
 create table gpu(
-    id int not null,   
+    id int IDENTITY(1,1) not null,   
     name varchar(30) not null,
     brand char(10) null,
     price FLOAT null,
@@ -27,7 +24,7 @@ create table gpu(
  
 )
 create table ram(
-    id int not null,   
+   id int IDENTITY(1,1) not null,   
     name varchar(30) not null,
     brand char(10) null,
     price FLOAT null,
@@ -37,7 +34,7 @@ create table ram(
     PRIMARY KEY (id)
 )
 create table monitor(
-    id int not null,   
+   id int IDENTITY(1,1) not null,   
     name varchar(30) not null,
     brand char(10) null,
     price FLOAT null,
@@ -48,7 +45,7 @@ create table monitor(
  
 )
 create table hardDisk(
-    id int not null,   
+   id int IDENTITY(1,1) not null,   
     name varchar(30) not null,
     brand char(10) null,
     price FLOAT null,
@@ -57,7 +54,7 @@ create table hardDisk(
     PRIMARY KEY (id)
 )
 create table pc(
-    id int not null,   
+    id int IDENTITY(1,1) not null,   
     name varchar(30) not null,
     brand char(10) null,
     price FLOAT null,
@@ -76,7 +73,7 @@ create table pc(
 )
 
 create table client(
-    username VARCHAR(30) not null,
+    userName VARCHAR(30) not null,
     password VARCHAR(30) not null,
     firstName VARCHAR(30) null,
     lastName varchar(30) null,
@@ -87,6 +84,5 @@ create table employee(
     password VARCHAR(30) not null,
     firstName VARCHAR(30) null,
     lastName varchar(30) null,
-    isAdmin bit not null,
     primary key (userName)
 ) 
