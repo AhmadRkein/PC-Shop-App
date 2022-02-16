@@ -1,3 +1,3 @@
 use PcShop
-insert into client values('m','m','mohamad','Nasser')
-select * from client where userName='m' and passwo
+insert into client values('client','123','client','one')
+insert into employee values('employee','123','employee','one')

@@ -1,5 +1,8 @@
+use master
 create database PcShop
-use pcshop
+go
+use PcShop
+go
 create table cpu(
     id int IDENTITY(1,1) not null,   
     name varchar(30) not null,
@@ -10,7 +13,7 @@ create table cpu(
     freq FLOAT not null,
     PRIMARY KEY (id)
 )
-drop table cpu
+
 create table gpu(
     id int IDENTITY(1,1) not null,   
     name varchar(30) not null,
