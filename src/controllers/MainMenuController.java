@@ -20,17 +20,15 @@ public class MainMenuController {
     private StackPane MainPane;
 
     @FXML
-    private Label usernameLabel;
+    private Label nameLabel;
 
     @FXML
     public void initialize(){
         User user= CurrentUser.getUser();
-        usernameLabel.setText(user.getname());
+        nameLabel.setText(user.getname());
     }
     @FXML
     void LogOutBtn_click(ActionEvent event) throws IOException {
-        User user= CurrentUser.getUser();
-        usernameLabel.setText(user.getname());
         Stage stage;
         Scene scene;
         Parent root;

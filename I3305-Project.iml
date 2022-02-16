@@ -16,5 +16,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="library" name="JavaFx" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
