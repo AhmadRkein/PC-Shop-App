@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import models.DBModel;
 import models.users.Client;
 import models.users.CurrentUser;
+import models.users.User;
 
 import java.io.IOException;
 
@@ -125,7 +126,7 @@ public class LoginMenuController {
         DBModel dbModel = DBModel.getInstance();
         String userName = UserNameText.getText();
         String password = PasswordText.getText();
-        Client c = (Client) dbModel.SignIn(userName, password);
+        User c = dbModel.SignIn(userName, password);
         Stage stage;
         Scene scene;
         Parent root;

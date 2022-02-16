@@ -87,5 +87,6 @@ create table employee(
     password VARCHAR(30) not null,
     firstName VARCHAR(30) null,
     lastName varchar(30) null,
+	isAdmin bit not null,
     primary key (userName)
 ) 
