@@ -67,7 +67,7 @@
                         <Font size="15.0" />
                      </font>
                   </PasswordField>
-                  <Button mnemonicParsing="false" onAction="#SignInBtn_click" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: maroon;" text="Sign In" textFill="WHITE">
+                  <Button fx:id="SignInBtn" defaultButton="true" mnemonicParsing="false" onAction="#SignInBtn_click" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: maroon;" text="Sign In" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="22.0" />
                      </font>
@@ -165,7 +165,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </PasswordField>
-                  <Button defaultButton="true" mnemonicParsing="false" onAction="#RegisterBtn_click" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: maroon;" text="Register" textFill="WHITE">
+                  <Button fx:id="RegisterBtn" mnemonicParsing="false" onAction="#RegisterBtn_click" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: maroon;" text="Register" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="22.0" />
                      </font>

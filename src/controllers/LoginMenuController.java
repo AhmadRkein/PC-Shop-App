@@ -6,9 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.DBModel;
@@ -48,6 +50,12 @@ public class LoginMenuController {
     private TextField UserNameText;
 
     @FXML
+    private Button RegisterBtn;
+
+    @FXML
+    private Button SignInBtn;
+
+    @FXML
     public void initialize(){
         LoginPane.toFront();
         RegUserNameText.setText("");
@@ -57,6 +65,9 @@ public class LoginMenuController {
         RegFirstNameText.setText("");
         UserNameText.setText("");
         PasswordText.setText("");
+        RegisterBtn.defaultButtonProperty().bind(SignInBtn.defaultButtonProperty().not());
+        SignInBtn.setDefaultButton(true);
+//        RegisterBtn.defaultButtonProperty().bind(SignInBtn.defaultButtonProperty().not());
     }
 
     @FXML
@@ -69,6 +80,7 @@ public class LoginMenuController {
         RegFirstNameText.setText("");
         UserNameText.setText("");
         PasswordText.setText("");
+        SignInBtn.setDefaultButton(true);
     }
 
     @FXML
@@ -81,6 +93,7 @@ public class LoginMenuController {
         RegFirstNameText.setText("");
         UserNameText.setText("");
         PasswordText.setText("");
+        SignInBtn.setDefaultButton(false);
     }
 
     @FXML
@@ -112,6 +125,7 @@ public class LoginMenuController {
         if(!userName.equals("") && !firstName.equals("") && !lastName.equals("") && !password.equals("")&& password.length()>=4 ){
             dbModel.RegisterClient(userName,password,firstName,lastName);
             LoginPane.toFront();
+            SignInBtn.setDefaultButton(true);
             RegUserNameText.setText("");
             RegPasswordText.setText("");
             RegRepPasswordText.setText("");
