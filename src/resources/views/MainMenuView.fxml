@@ -38,7 +38,7 @@
                   </ImageView>
                </center>
                <bottom>
-                  <Label fx:id="nameLabel" alignment="CENTER" style="-fx-border-color: white; -fx-padding: 5; -fx-border-radius: 8;" text="Name" textFill="#ffea00" BorderPane.alignment="CENTER">
+                  <Label fx:id="nameLabel" alignment="CENTER" style="-fx-border-color: white; -fx-padding: 5; -fx-border-radius: 8;" text="Name" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font size="20.0" />
                      </font>
