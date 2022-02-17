@@ -62,22 +62,22 @@ public class BrowseShopController {
             @Override
             public void changed(ObservableValue<? extends Toggle> observableValue, Toggle toggle, Toggle t1) {
                 RadioButton selected=(RadioButton) radioGroup.getSelectedToggle();
-                if(selected.getText().equals("CPU")){
+                if(selected.getText().equals(radioBtnCpu.getText())){
                     displayedProducts=FXCollections.observableArrayList(dbModel.getCpuProducts());
 
-                }
-                else if(selected.getText().equals(radioBtnCpu.getText())){
-                    displayedProducts=FXCollections.observableArrayList(dbModel.getGpuProducts());
+                }else if(selected.getText().equals(radioBtnRam.getText())){
+                    displayedProducts=FXCollections.observableArrayList(dbModel.getRamProducts());
 
                 }
                 else if(selected.getText().equals(radioBtnGpu.getText())){
                     displayedProducts=FXCollections.observableArrayList(dbModel.getGpuProducts());
 
-                }else if(selected.getText().equals(radioBtnMonitor.getText())){
+                }
+                else if(selected.getText().equals(radioBtnMonitor.getText())){
                     displayedProducts=FXCollections.observableArrayList(dbModel.getMonitorProducts());
 
                 }else if(selected.getText().equals(radioBtnHdd.getText())){
-                    displayedProducts=FXCollections.observableArrayList(dbModel.getMonitorProducts());
+                    displayedProducts=FXCollections.observableArrayList(dbModel.getHardDiskProducts());
 
                 }
                 productsList.getItems().clear();
