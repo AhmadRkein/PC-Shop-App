@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -45,7 +47,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="UserNameText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="User Name">
+                  <TextField fx:id="UserNameText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="User Name" style="-fx-background-radius: 8; -fx-border-radius: 8;">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -55,8 +57,11 @@
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </TextField>
-                  <PasswordField fx:id="PasswordText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="Password">
+                  <PasswordField fx:id="PasswordText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="Password" style="-fx-background-radius: 8; -fx-border-radius: 8;">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -66,22 +71,37 @@
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </PasswordField>
-                  <Button mnemonicParsing="false" onAction="#SignInBtn_click" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: maroon;" text="Sign In" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#SignInBtn_click" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="Sign In" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="22.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" left="30.0" right="30.0" top="30.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#GotoRegisterBtn_click" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: maroon;" text="Register" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#GotoRegisterBtn_click" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="Register" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="22.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Button>
                </children>
             </VBox>
@@ -94,11 +114,14 @@
                      <left>
                         <ImageView fitHeight="41.0" fitWidth="31.0" onMouseClicked="#BackBtn_click" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
-                              <Image url="@../images/back.png" />
+                              <Image url="@../../../../../Idea-projects/I3305-Project-Ahmad/src/resources/images/back.png" />
                            </image>
-                           <BorderPane.margin>
-                              <Insets left="10.0" top="5.0" />
-                           </BorderPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <DropShadow />
+                           </effect>
                         </ImageView>
                      </left>
                   </BorderPane>
@@ -110,7 +133,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="RegFirstNameText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="First Name">
+                  <TextField fx:id="RegFirstNameText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="First Name" style="-fx-background-radius: 8; -fx-border-radius: 8;">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -120,8 +143,11 @@
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </TextField>
-                  <TextField fx:id="RegLastNameText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="Last Name">
+                  <TextField fx:id="RegLastNameText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="Last Name" style="-fx-background-radius: 8; -fx-border-radius: 8;">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -131,8 +157,11 @@
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </TextField>
-                  <TextField fx:id="RegUserNameText" layoutX="74.0" layoutY="128.0" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="User Name">
+                  <TextField fx:id="RegUserNameText" layoutX="74.0" layoutY="128.0" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="User Name" style="-fx-background-radius: 8; -fx-border-radius: 8;">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -142,8 +171,11 @@
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </TextField>
-                  <PasswordField fx:id="RegPasswordText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="Password">
+                  <PasswordField fx:id="RegPasswordText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="Password" style="-fx-background-radius: 8; -fx-border-radius: 8;">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -153,8 +185,11 @@
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </PasswordField>
-                  <PasswordField fx:id="RegRepPasswordText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="Password">
+                  <PasswordField fx:id="RegRepPasswordText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="Repeat Password" style="-fx-background-radius: 8; -fx-border-radius: 8;">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -164,14 +199,23 @@
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </PasswordField>
-                  <Button defaultButton="true" mnemonicParsing="false" onAction="#RegisterBtn_click" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: maroon;" text="Register" textFill="WHITE">
+                  <Button defaultButton="true" mnemonicParsing="false" onAction="#RegisterBtn_click" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="Register" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="22.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Button>
                </children>
                <StackPane.margin>

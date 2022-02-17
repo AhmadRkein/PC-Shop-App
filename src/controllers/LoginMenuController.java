@@ -80,6 +80,13 @@ public class LoginMenuController {
         RegFirstNameText.setText("");
         UserNameText.setText("");
         PasswordText.setText("");
+        UserNameText.setStyle("-fx-border-color:black;");
+        PasswordText.setStyle("-fx-border-color:black;");
+        RegUserNameText.setStyle("-fx-border-color:black;");
+        RegPasswordText.setStyle("-fx-border-color:black;");
+        RegRepPasswordText.setStyle("-fx-border-color:black;");
+        RegLastNameText.setStyle("-fx-border-color:black;");
+        RegFirstNameText.setStyle("-fx-border-color:black;");
     }
 
     @FXML
@@ -95,7 +102,8 @@ public class LoginMenuController {
         RegRepPasswordText.setStyle("-fx-border-color:black;");
         RegLastNameText.setStyle("-fx-border-color:black;");
         RegFirstNameText.setStyle("-fx-border-color:black;");
-        if(userName.equals("")) {
+        boolean isAvailable=dbModel.checkUserName(userName);
+        if(userName.equals("")|| !isAvailable) {
             RegUserNameText.setStyle("-fx-border-color:red;");
         }
         if(firstName.equals("")){
@@ -108,7 +116,7 @@ public class LoginMenuController {
             RegPasswordText.setStyle("-fx-border-color:red;");
             RegRepPasswordText.setStyle("-fx-border-color:red;");
         }
-        if(!userName.equals("") && !firstName.equals("") && !lastName.equals("") && !password.equals("")&& password.length()>=4 ){
+        if(!userName.equals("") && !firstName.equals("") && !lastName.equals("") && !password.equals("")&& password.length()>=4 &&password.equals(repPassword) && isAvailable){
             dbModel.RegisterClient(userName,password,firstName,lastName);
             LoginPane.toFront();
             RegUserNameText.setText("");

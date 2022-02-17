@@ -47,6 +47,22 @@ public class DBModel {
         }
         return con;
     }
+    public boolean checkUserName(String userName ){
+        try {
+            Statement statement = con.createStatement();
+            String sql=String.format("select Count(username) as count from client where username='%s'",userName);
+            ResultSet rs=statement.executeQuery(sql);
+            rs.next();
+            boolean isAvailable =rs.getInt("count")==0;
+            statement.close();
+            return isAvailable;
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
     public void RegisterClient(String userName,String password,String firstName,String lastName ){
         try {
             Statement statement = con.createStatement();

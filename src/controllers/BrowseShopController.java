@@ -84,9 +84,8 @@ public class BrowseShopController {
                 productsList.getItems().addAll(displayedProducts);
             }
         });
-
-
-     sortChoiceBox.getItems().addAll("By Name","By Price Ascending","By Price Descending");
+        //Sort products
+        sortChoiceBox.getItems().addAll("By Name","By Price Ascending","By Price Descending");
      sortChoiceBox.setOnAction((event) -> {
         if(sortChoiceBox.getValue().equals("By Name")){
          sorter.setOrderStrategy(orderStrategyByName);

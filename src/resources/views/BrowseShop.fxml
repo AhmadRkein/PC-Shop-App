@@ -16,7 +16,7 @@
    <top>
       <AnchorPane prefHeight="74.0" prefWidth="781.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <GridPane layoutX="192.0" layoutY="37.0" prefHeight="33.0" prefWidth="396.0" style="-fx-border-color: #800000; -fx-border-radius: 8;">
+            <GridPane layoutX="192.0" layoutY="37.0" prefHeight="33.0" prefWidth="396.0" style="-fx-border-color: #800000; -fx-border-radius: 8; -fx-padding: 10;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -31,7 +31,7 @@
                   <RadioButton fx:id="radioBtnCpu" mnemonicParsing="false" text="CPU" />
                   <RadioButton fx:id="radioBtnGpu" mnemonicParsing="false" text="GPU" GridPane.columnIndex="1" />
                   <RadioButton fx:id="radioBtnRam" mnemonicParsing="false" text="RAM" GridPane.columnIndex="2" />
-                  <RadioButton fx:id="radioBtnHdd" mnemonicParsing="false" text="HDD" GridPane.columnIndex="3" />
+                  <RadioButton fx:id="radioBtnHdd" mnemonicParsing="false" style="-fx-padding: 1;" text="HDD" GridPane.columnIndex="3" />
                   <RadioButton fx:id="radioBtnMonitor" mnemonicParsing="false" text="Monitor" GridPane.columnIndex="4" />
                </children>
             </GridPane>
