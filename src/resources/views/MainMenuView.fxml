@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -39,10 +40,13 @@
                   </ImageView>
                </center>
                <bottom>
-                  <Label fx:id="nameLabel" alignment="CENTER" style="-fx-border-color: #80000; -fx-padding: 5; -fx-border-radius: 8; -fx-background-color: white; -fx-background-radius: 5;" text="Name" textFill="#f5a433" BorderPane.alignment="CENTER">
+                  <Label fx:id="nameLabel" alignment="CENTER" style="-fx-padding: 5; -fx-border-radius: 8; -fx-background-color: white; -fx-background-radius: 5;" text="Name" textFill="#f5a433" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Label>
                </bottom>
             </BorderPane>
