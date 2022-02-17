@@ -25,7 +25,10 @@
             <RowConstraints maxHeight="548.0" minHeight="0.0" prefHeight="431.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <StackPane fx:id="MainPane" prefHeight="600.0" prefWidth="780.0" GridPane.columnIndex="1" GridPane.rowSpan="2" />
+            <StackPane fx:id="MainPane" prefHeight="596.0" prefWidth="780.0" GridPane.columnIndex="1" GridPane.rowSpan="2">
+               <children>
+                  <AnchorPane fx:id="content" prefHeight="599.0" prefWidth="840.0" />
+               </children></StackPane>
             <BorderPane minHeight="140.0" minWidth="220.0" prefHeight="182.0" prefWidth="220.0" style="-fx-background-color: #800000;">
                <center>
                   <ImageView fitHeight="119.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
@@ -35,7 +38,7 @@
                   </ImageView>
                </center>
                <bottom>
-                  <Label fx:id="nameLabel" alignment="CENTER" text="Name" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Label fx:id="nameLabel" alignment="CENTER" style="-fx-border-color: white; -fx-padding: 5; -fx-border-radius: 8;" text="Name" textFill="#ffea00" BorderPane.alignment="CENTER">
                      <font>
                         <Font size="20.0" />
                      </font>
