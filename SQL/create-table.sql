@@ -5,7 +5,6 @@ create table cpu(
     name varchar(30) not null,
     brand char(10) null,
     price FLOAT null,
-    image varchar(30) null,
     coresNb int not null,
     freq FLOAT not null,
     PRIMARY KEY (id)
@@ -15,7 +14,6 @@ create table gpu(
     name varchar(30) not null,
     brand char(10) null,
     price FLOAT null,
-    image varchar(30) null,
     clockSpeed FLOAT not null,
     vram float not null,
     busType VARCHAR(10) not null,
@@ -27,7 +25,6 @@ create table ram(
     name varchar(30) not null,
     brand char(10) null,
     price FLOAT null,
-    image varchar(30) null,
     size int not null,
     dram int not null,
     PRIMARY KEY (id)
@@ -37,7 +34,6 @@ create table monitor(
     name varchar(30) not null,
     brand char(10) null,
     price FLOAT null,
-    image varchar(30) null,
     size int not null,
     resolution VARCHAR(20) not null,
     PRIMARY KEY (id)
@@ -48,7 +44,6 @@ create table hardDisk(
     name varchar(30) not null,
     brand char(10) null,
     price FLOAT null,
-    image varchar(30) null,
     storage int null,
     PRIMARY KEY (id)
 )
@@ -57,7 +52,6 @@ create table pc(
     name varchar(30) not null,
     brand char(10) null,
     price FLOAT null,
-    image varchar(30) null,
     cpuId int null,
     gpuId int null,
     ramId int null,
@@ -83,5 +77,6 @@ create table employee(
     password VARCHAR(30) not null,
     firstName VARCHAR(30) null,
     lastName varchar(30) null,
+    isAdmin bit not null,
     primary key (userName)
 )

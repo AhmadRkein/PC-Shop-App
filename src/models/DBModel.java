@@ -417,7 +417,7 @@ public class DBModel {
     public void addGpu(GPU gpu){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into gpu values ('%s','%s',%f,'%s',%d,%d,'%s')",gpu.getName(),gpu.getBrand(),gpu.getPrice(),gpu.getImage().getUrl(),gpu.getClockSpeed(),gpu.getVramSize(),gpu.getBusType());
+            String sql=String.format("insert into gpu values ('%s','%s',%f,%d,%d,'%s')",gpu.getName(),gpu.getBrand(),gpu.getPrice(),gpu.getClockSpeed(),gpu.getVramSize(),gpu.getBusType());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added GPU");
@@ -428,7 +428,7 @@ public class DBModel {
     public void addRam(Ram ram){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,'%s',%d,%d)",ram.getName(),ram.getBrand(),ram.getPrice(),ram.getImage().getUrl(),ram.getSize(),ram.isDram());
+            String sql=String.format("insert into ram values ('%s','%s',%f,%d,%d)",ram.getName(),ram.getBrand(),ram.getPrice(),ram.getSize(),ram.isDram());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added Ram");
@@ -439,7 +439,7 @@ public class DBModel {
     public void addMonitor(Monitor m){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,'%s',%d,%d)",m.getName(),m.getBrand(),m.getPrice(),m.getImage().getUrl(),m.getSize(),m.getResolution());
+            String sql=String.format("insert into ram values ('%s','%s',%f,%d,%d)",m.getName(),m.getBrand(),m.getPrice(),m.getSize(),m.getResolution());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added Monitor");
@@ -450,7 +450,7 @@ public class DBModel {
     public void addHardDisk(HardDisk h){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,'%s',%d)",h.getName(),h.getBrand(),h.getPrice(),h.getImage().getUrl(),h.getStorage());
+            String sql=String.format("insert into ram values ('%s','%s',%f,%d)",h.getName(),h.getBrand(),h.getPrice(),h.getStorage());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added hardDisk");
