@@ -47,5 +47,6 @@ public abstract class Product {
 		public String toString(){
 			return this.getName()+" Price="+this.getPrice();
 		}
-		
+		public abstract String getDescription();
+
 }

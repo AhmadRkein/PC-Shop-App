@@ -38,6 +38,17 @@ public class PC extends Product {
 	public void setMonitor(Monitor monitor) {
 		this.monitor = monitor;
 	}
-	
-	
+
+	@Override
+	public String getDescription() {
+		return 	  "\nName: "+getName()
+				+ "\nType: PC"
+				+ "\nComponents:"
+				+ "\n\t- " + getCpu().getDescription()
+				+ "\n\t- " + getGpu().getDescription()
+				+ "\n\t- " + getRam().getDescription()
+				+ "\n\t- " + getStorage().getDescription()
+				+ "\n\t- " + getMonitor().getDescription()
+				+ "\nPrice: " + getPrice();
+	}
 }

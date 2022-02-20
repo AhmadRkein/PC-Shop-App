@@ -36,7 +36,6 @@ public class ProductFlyWeight {
 		}
 		
 		if (p == null) {
-			// TODO get Product from database
 			p = DBModel.getInstance().getProductById(t.name(), pid);
 			
 			switch (t) {

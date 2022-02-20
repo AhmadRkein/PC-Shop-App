@@ -22,4 +22,14 @@ public class CPU extends Product {
 	public void setSpeed(int speed) {
 		Speed = speed;
 	}
+
+	@Override
+	public String getDescription() {
+		return 	  "Brand: "+getBrand()
+				+ "\nName: "+getName()
+				+ "\nType: CPU"
+				+ "\nClock Speed: " + getSpeed()
+				+ "\nNumber of Cores: " + getCoresNb()
+				+ "\nPrice: " + getPrice() + "$";
+	}
 }

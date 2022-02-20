@@ -8,6 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import models.*;
 
@@ -16,7 +19,6 @@ import java.util.*;
 
 public class BrowseShopController {
 
-    private ArrayList<Product> displayedProducts;
 
     @FXML
     private RadioButton radioBtnCpu;
@@ -39,12 +41,29 @@ public class BrowseShopController {
     @FXML
     private FlowPane ItemPanel;
 
+    @FXML
+    private AnchorPane InfoPane;
+
+    @FXML
+    private BorderPane MainPane;
+
+    @FXML
+    private Label ProductDesc;
+
+    @FXML
+    private ImageView ProductImage;
+
+
+
+    private ArrayList<Product> displayedProducts;
+
     private ByteArrayOutputStream  outputstream;
 
     @FXML
     public void initialize(){
+        MainPane.toFront();
+        InfoPane.setDisable(true);
         //setting DB Connection and setting up the sorter
-
         DBModel dbModel=DBModel.getInstance();
         Sorter sorter=new Sorter();
         OrderStrategyByPriceAsc orderStrategyByPriceAsc=new OrderStrategyByPriceAsc();
@@ -137,9 +156,26 @@ public class BrowseShopController {
     private Node CreateItemPane(Product p) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent root = fxmlLoader.load(new ByteArrayInputStream(outputstream.toByteArray()));
-        ItemPaneController controller = fxmlLoader.<ItemPaneController>getController();
+        ItemPaneController controller = fxmlLoader.getController();
         controller.setProduct(p);
+        controller.setBrowseShop(this);
 
         return root;
+    }
+
+    @FXML
+    void CloseBtn_Click(ActionEvent event) {
+        InfoPane.setDisable(true);
+        MainPane.setDisable(false);
+        MainPane.toFront();
+    }
+
+    public void ViewInfo(Product p){
+        MainPane.setDisable(true);
+        InfoPane.setDisable(false);
+        InfoPane.toFront();
+
+        ProductImage.setImage(p.getImage());
+        ProductDesc.setText(p.getDescription());
     }
 }
