@@ -1,5 +1,6 @@
 package models;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
@@ -12,7 +13,8 @@ public class Sorter {
     public OrderStrategy getOrderStrategy(){
         return str;
     }
-    public void sort(ObservableList<Product> p){
+    public void sort(ArrayList<Product> p){
+
         str.order(p);
     }
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class OrderStrategyByPriceAsc implements OrderStrategy {
 
     @Override
-    public void order(ObservableList<Product> p) {
+    public void order(ArrayList<Product> p) {
         Product tmp;
         for(int i=0;i<p.size();i++){
             for(int j=i+1;j<p.size();j++){

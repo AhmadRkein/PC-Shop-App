@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 import java.util.ArrayList;
 
 public class OrderStrategyByPriceDes implements OrderStrategy {
-    public void order(ObservableList<Product> p) {
+    public void order(ArrayList<Product> p) {
         Product tmp;
         for(int i=0;i<p.size();i++){
             for(int j=i+1;j<p.size();j++){

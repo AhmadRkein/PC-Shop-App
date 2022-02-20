@@ -1,10 +1,11 @@
 package controllers;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import models.Product;
 
-public class ItemCardController {
+public class ItemPaneController {
 
     @FXML
     private Label ItemName;
@@ -27,8 +28,10 @@ public class ItemCardController {
 
     @FXML
     public void initialize(){
-        ItemName.setText(product.getName());
-        ItemPrice.setText(product.getPrice() + "$");
-        image.setImage(product.getImage());
+        Platform.runLater(() -> {
+            ItemName.setText(product.getName());
+            ItemPrice.setText(product.getPrice() + "$");
+            image.setImage(product.getImage());
+        });
     }
 }

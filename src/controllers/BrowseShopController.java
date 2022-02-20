@@ -1,22 +1,22 @@
 package controllers;
 
-import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.layout.FlowPane;
 import models.*;
 
+import java.io.*;
 import java.util.*;
 
 public class BrowseShopController {
 
-    private ObservableList<Product> displayedProducts;
-    @FXML
-    private ListView<Product> productsList;
+    private ArrayList<Product> displayedProducts;
 
     @FXML
     private RadioButton radioBtnCpu;
@@ -37,6 +37,11 @@ public class BrowseShopController {
     private ChoiceBox<String> sortChoiceBox;
 
     @FXML
+    private FlowPane ItemPanel;
+
+    private ByteArrayOutputStream  outputstream;
+
+    @FXML
     public void initialize(){
         //setting DB Connection and setting up the sorter
 
@@ -55,53 +60,86 @@ public class BrowseShopController {
         radioBtnHdd.setToggleGroup(radioGroup);
         //default is cpu tab
         radioBtnCpu.setSelected(true);
-        displayedProducts=FXCollections.observableArrayList(dbModel.getCpuProducts());
-        productsList.getItems().addAll(displayedProducts);
+
+        InputStream stream = getClass().getResourceAsStream("../resources/views/ItemPaneView.fxml");
+        outputstream = new ByteArrayOutputStream();
+        try {
+            stream.transferTo(outputstream);
+            stream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //initialize displayedProducts
+        displayedProducts = new ArrayList<Product>();
+        setDisplayedProducts(dbModel.getCpuProducts());
+
         //change products by radiobutton
         radioGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observableValue, Toggle toggle, Toggle t1) {
                 RadioButton selected=(RadioButton) radioGroup.getSelectedToggle();
                 if(selected.getText().equals(radioBtnCpu.getText())){
-                    displayedProducts=FXCollections.observableArrayList(dbModel.getCpuProducts());
+                    setDisplayedProducts(dbModel.getCpuProducts());
 
                 }else if(selected.getText().equals(radioBtnRam.getText())){
-                    displayedProducts=FXCollections.observableArrayList(dbModel.getRamProducts());
+                    setDisplayedProducts(dbModel.getRamProducts());
 
                 }
                 else if(selected.getText().equals(radioBtnGpu.getText())){
-                    displayedProducts=FXCollections.observableArrayList(dbModel.getGpuProducts());
+                    setDisplayedProducts(dbModel.getGpuProducts());
 
                 }
                 else if(selected.getText().equals(radioBtnMonitor.getText())){
-                    displayedProducts=FXCollections.observableArrayList(dbModel.getMonitorProducts());
+                    setDisplayedProducts(dbModel.getMonitorProducts());
 
                 }else if(selected.getText().equals(radioBtnHdd.getText())){
-                    displayedProducts=FXCollections.observableArrayList(dbModel.getHardDiskProducts());
+                    setDisplayedProducts(dbModel.getHardDiskProducts());
 
                 }
-                productsList.getItems().clear();
-                productsList.getItems().addAll(displayedProducts);
             }
         });
         //Sort products
         sortChoiceBox.getItems().addAll("By Name","By Price Ascending","By Price Descending");
-     sortChoiceBox.setOnAction((event) -> {
-        if(sortChoiceBox.getValue().equals("By Name")){
-         sorter.setOrderStrategy(orderStrategyByName);
-         }
-         else if(sortChoiceBox.getValue().equals("By Price Ascending")){
-             sorter.setOrderStrategy(orderStrategyByPriceAsc);
-         }
-         else if(sortChoiceBox.getValue().equals("By Price Descending")){
-             sorter.setOrderStrategy(orderStrategyByPriceDes);
-         }
-         sorter.sort(displayedProducts);
-         productsList.getItems().clear();
-         productsList.getItems().addAll(displayedProducts);
-     });
+        sortChoiceBox.setOnAction((event) -> {
+            if(sortChoiceBox.getValue().equals("By Name")){
+                sorter.setOrderStrategy(orderStrategyByName);
+            }
+            else if(sortChoiceBox.getValue().equals("By Price Ascending")){
+                sorter.setOrderStrategy(orderStrategyByPriceAsc);
+            }
+            else if(sortChoiceBox.getValue().equals("By Price Descending")){
+                sorter.setOrderStrategy(orderStrategyByPriceDes);
+            }
 
+            sorter.sort(displayedProducts);
+            setDisplayedProducts(new ArrayList<>(displayedProducts));
+        });
+
+        sortChoiceBox.fireEvent(new ActionEvent());
     }
 
+    private <type> void setDisplayedProducts(ArrayList<type> products) {
+        ItemPanel.getChildren().clear();
+        displayedProducts.clear();
 
+        for (type p:products) {
+            try {
+                Node n = CreateItemPane((Product)p);
+                ItemPanel.getChildren().add(n);
+                displayedProducts.add((Product)p);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private Node CreateItemPane(Product p) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent root = fxmlLoader.load(new ByteArrayInputStream(outputstream.toByteArray()));
+        ItemPaneController controller = fxmlLoader.<ItemPaneController>getController();
+        controller.setProduct(p);
+
+        return root;
+    }
 }
