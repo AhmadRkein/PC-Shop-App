@@ -116,6 +116,7 @@ public class BrowseShopController {
                     setDisplayedProducts(dbModel.getHardDiskProducts());
 
                 }
+                sortChoiceBox.fireEvent(new ActionEvent());
             }
         });
         //Sort products

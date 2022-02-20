@@ -34,15 +34,13 @@ public class ItemPaneController {
 
     public void setProduct(Product product) {
         this.product = product;
+        ItemName.setText(product.getName());
+        ItemPrice.setText(product.getPrice() + "$");
+        image.setImage(product.getImage());
     }
 
     @FXML
     public void initialize(){
-        Platform.runLater(() -> {
-            ItemName.setText(product.getName());
-            ItemPrice.setText(product.getPrice() + "$");
-            image.setImage(product.getImage());
-        });
     }
 
     @FXML
