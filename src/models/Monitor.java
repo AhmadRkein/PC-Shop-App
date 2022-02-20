@@ -15,5 +15,14 @@ public class Monitor extends Product {
 	public void setResolution(int resolution) {
 		Resolution = resolution;
 	}
+	@Override
+	public String getDescription() {
+		return 	  "Brand: "+getBrand()
+				+ "\nName: "+getName()
+				+ "\nType: Monitor"
+				+ "\nSize: " + getSize()
+				+ "\nResolution: " + getResolution()
+				+ "\nPrice: " + getPrice() + "$";
+	}
 	
 }

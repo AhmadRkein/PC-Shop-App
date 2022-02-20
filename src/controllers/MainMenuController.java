@@ -6,7 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import models.users.CurrentUser;
@@ -20,17 +22,21 @@ public class MainMenuController {
     private StackPane MainPane;
 
     @FXML
-    private Label usernameLabel;
+    private Label nameLabel;
 
     @FXML
-    public void initialize(){
+    private AnchorPane content;
+
+    @FXML
+    public void initialize() throws IOException {
         User user= CurrentUser.getUser();
-        usernameLabel.setText(user.getname());
+        nameLabel.setText(user.getname());
+        Parent browseShop;
+        browseShop = FXMLLoader.load(getClass().getResource("../resources/views/BrowseShop.fxml"));
+        content.getChildren().add(browseShop);
     }
     @FXML
     void LogOutBtn_click(ActionEvent event) throws IOException {
-        User user= CurrentUser.getUser();
-        usernameLabel.setText(user.getname());
         Stage stage;
         Scene scene;
         Parent root;
@@ -42,8 +48,10 @@ public class MainMenuController {
     }
 
     @FXML
-    void MainMenuBtn_click(ActionEvent event) {
-
+    void MainMenuBtn_click(ActionEvent event) throws IOException {
+        Parent browseShop;
+        browseShop = FXMLLoader.load(getClass().getResource("../resources/views/BrowseShop.fxml"));
+        content.getChildren().add(browseShop);
     }
 
     @FXML

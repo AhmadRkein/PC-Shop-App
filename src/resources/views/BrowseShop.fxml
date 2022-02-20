@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BrowseShopController">
+   <children>
+      <BorderPane fx:id="MainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="780.0">
+         <top>
+            <AnchorPane prefHeight="74.0" prefWidth="781.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <GridPane layoutX="192.0" layoutY="37.0" prefHeight="33.0" prefWidth="396.0" style="-fx-border-color: #800000; -fx-border-radius: 8; -fx-padding: 10;">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <RadioButton fx:id="radioBtnCpu" mnemonicParsing="false" text="CPU" />
+                        <RadioButton fx:id="radioBtnGpu" mnemonicParsing="false" text="GPU" GridPane.columnIndex="1" />
+                        <RadioButton fx:id="radioBtnRam" mnemonicParsing="false" text="RAM" GridPane.columnIndex="2" />
+                        <RadioButton fx:id="radioBtnHdd" mnemonicParsing="false" style="-fx-padding: 1;" text="HDD" GridPane.columnIndex="3" />
+                        <RadioButton fx:id="radioBtnMonitor" mnemonicParsing="false" text="Monitor" GridPane.columnIndex="4" />
+                     </children>
+                  </GridPane>
+                  <ToolBar layoutX="259.0" prefHeight="42.0" prefWidth="261.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 0;" AnchorPane.bottomAnchor="33.0" AnchorPane.topAnchor="0.0">
+                     <items>
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="47.0" text="Sort" textAlignment="CENTER" textFill="MAROON">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="sortChoiceBox" prefHeight="28.0" prefWidth="200.0" style="-fx-border-color: #800000; -fx-background-color: white; -fx-border-radius: 8;" value="By Name" />
+                     </items>
+                  </ToolBar>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <ScrollPane hbarPolicy="NEVER" BorderPane.alignment="CENTER">
+               <content>
+                  <FlowPane fx:id="ItemPanel" alignment="TOP_CENTER" columnHalignment="CENTER" hgap="30.0" prefHeight="525.0" prefWidth="780.0" vgap="30.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="150.0" text="Button">
+                           <FlowPane.margin>
+                              <Insets />
+                           </FlowPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="150.0" text="Button">
+                           <FlowPane.margin>
+                              <Insets />
+                           </FlowPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="150.0" text="Button">
+                           <FlowPane.margin>
+                              <Insets />
+                           </FlowPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="150.0" text="Button">
+                           <FlowPane.margin>
+                              <Insets />
+                           </FlowPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="150.0" text="Button">
+                           <FlowPane.margin>
+                              <Insets />
+                           </FlowPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="150.0" text="Button">
+                           <FlowPane.margin>
+                              <Insets />
+                           </FlowPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="150.0" text="Button">
+                           <FlowPane.margin>
+                              <Insets />
+                           </FlowPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="150.0" text="Button">
+                           <FlowPane.margin>
+                              <Insets />
+                           </FlowPane.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding>
+                  </FlowPane>
+               </content>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+      <AnchorPane fx:id="InfoPane" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="444.0" style="-fx-background-color: white; -fx-border-color: maroon;" StackPane.alignment="CENTER">
+         <children>
+            <GridPane alignment="CENTER" layoutX="1.0" layoutY="2.0" prefHeight="500.0" prefWidth="444.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" percentWidth="10.0" prefWidth="84.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="398.0" minWidth="10.0" prefWidth="314.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="0.0" percentWidth="10.0" prefWidth="177.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="254.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="398.0" minHeight="10.0" prefHeight="302.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="374.0" minHeight="10.0" percentHeight="7.0" prefHeight="97.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fx:id="ProductImage" fitHeight="125.0" fitWidth="275.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets top="20.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <Label fx:id="ProductDesc" contentDisplay="CENTER" lineSpacing="4.0" minHeight="330.0" minWidth="355.0" style="-fx-background-color: white;" text="text" textFill="MAROON" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding>
+                     <font>
+                        <Font name="Tahoma" size="25.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: maroon;" GridPane.rowSpan="3" />
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: maroon;" GridPane.columnIndex="2" GridPane.rowSpan="3" />
+                  <Button alignment="CENTER" cancelButton="true" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#CloseBtn_Click" style="-fx-background-color: white;" text="Close" textAlignment="CENTER" textFill="MAROON" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="Tahoma Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

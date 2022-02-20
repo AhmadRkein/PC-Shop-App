@@ -15,5 +15,12 @@ public class Ram extends Product {
 	public void setDram(boolean isDram) {
 		this.isDram = isDram;
 	}
-	
+	@Override
+	public String getDescription() {
+		return 	  "Brand: "+getBrand()
+				+ "\nName: "+getName()
+				+ "\nType: RAM"
+				+ "\nClock Capacity: " + getSize()
+				+ "\nPrice: " + getPrice() + "$";
+	}
 }

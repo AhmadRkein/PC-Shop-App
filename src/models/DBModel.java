@@ -21,9 +21,9 @@ public class DBModel {
         return _instance;
     }
     private static Connection createConnection() {
-        String server = "nasser-aspiree5576g";  //replace
-        String username="SA";                  //with
-        String password="Ameno1234@";         //your own info
+        String server = "127.0.0.1";  //replace
+        String username="user1";                  //with
+        String password="zoom123";         //your own info
         int port = 1433;
         String database = "PcShop";
         String jdbcurl;
@@ -47,6 +47,22 @@ public class DBModel {
         }
         return con;
     }
+    public boolean checkUserName(String userName ){
+        try {
+            Statement statement = con.createStatement();
+            String sql=String.format("select Count(username) as count from client where username='%s'",userName);
+            ResultSet rs=statement.executeQuery(sql);
+            rs.next();
+            boolean isAvailable =rs.getInt("count")==0;
+            statement.close();
+            return isAvailable;
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
     public void RegisterClient(String userName,String password,String firstName,String lastName ){
         try {
             Statement statement = con.createStatement();
@@ -401,7 +417,7 @@ public class DBModel {
     public void addGpu(GPU gpu){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into gpu values ('%s','%s',%f,'%s',%d,%d,'%s')",gpu.getName(),gpu.getBrand(),gpu.getPrice(),gpu.getImage().getUrl(),gpu.getClockSpeed(),gpu.getVramSize(),gpu.getBusType());
+            String sql=String.format("insert into gpu values ('%s','%s',%f,%d,%d,'%s')",gpu.getName(),gpu.getBrand(),gpu.getPrice(),gpu.getClockSpeed(),gpu.getVramSize(),gpu.getBusType());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added GPU");
@@ -412,7 +428,7 @@ public class DBModel {
     public void addRam(Ram ram){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,'%s',%d,%d)",ram.getName(),ram.getBrand(),ram.getPrice(),ram.getImage().getUrl(),ram.getSize(),ram.isDram());
+            String sql=String.format("insert into ram values ('%s','%s',%f,%d,%d)",ram.getName(),ram.getBrand(),ram.getPrice(),ram.getSize(),ram.isDram());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added Ram");
@@ -423,7 +439,7 @@ public class DBModel {
     public void addMonitor(Monitor m){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,'%s',%d,%d)",m.getName(),m.getBrand(),m.getPrice(),m.getImage().getUrl(),m.getSize(),m.getResolution());
+            String sql=String.format("insert into ram values ('%s','%s',%f,%d,%d)",m.getName(),m.getBrand(),m.getPrice(),m.getSize(),m.getResolution());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added Monitor");
@@ -434,7 +450,7 @@ public class DBModel {
     public void addHardDisk(HardDisk h){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,'%s',%d)",h.getName(),h.getBrand(),h.getPrice(),h.getImage().getUrl(),h.getStorage());
+            String sql=String.format("insert into ram values ('%s','%s',%f,%d)",h.getName(),h.getBrand(),h.getPrice(),h.getStorage());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added hardDisk");

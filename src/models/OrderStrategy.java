@@ -1,5 +1,7 @@
 package models;
 
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 
 interface OrderStrategy {

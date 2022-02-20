@@ -23,5 +23,14 @@ public class GPU extends Product {
 	public void setBusType(String busType) {
 		BusType = busType;
 	}
-	
+	@Override
+	public String getDescription() {
+		return "Brand: " + getBrand()
+				+ "\nName: " + getName()
+				+ "\nType: GPU"
+				+ "\nClock Speed: " + getClockSpeed()
+				+ "\nVram Capacity: " + getVramSize()
+				+ "\nBus Type:" + getBusType()
+				+ "\nPrice: " + getPrice() + "$";
+	}
 }

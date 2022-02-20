@@ -16,4 +16,12 @@ public class HardDisk extends Product {
 	public void setHdd(boolean isHdd) {
 		this.isHdd = isHdd;
 	}
+	@Override
+	public String getDescription() {
+		return 	  "Brand: "+getBrand()
+				+ "\nName: "+getName()
+				+ "\nType: HardDisk"
+				+ "\nCapacity: " + getStorage()
+				+ "\nPrice: " + getPrice() + "$";
+	}
 }
