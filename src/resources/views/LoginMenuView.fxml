@@ -114,7 +114,7 @@
                      <left>
                         <ImageView fitHeight="41.0" fitWidth="31.0" onMouseClicked="#BackBtn_click" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
-                              <Image url="@../../../../../Idea-projects/I3305-Project-Ahmad/src/resources/images/back.png" />
+                              <Image url="@../images/back.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />

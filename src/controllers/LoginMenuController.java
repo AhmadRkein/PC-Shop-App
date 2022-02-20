@@ -92,13 +92,13 @@ public class LoginMenuController {
         RegFirstNameText.setText("");
         UserNameText.setText("");
         PasswordText.setText("");
-        UserNameText.setStyle("-fx-border-color:black;");
-        PasswordText.setStyle("-fx-border-color:black;");
-        RegUserNameText.setStyle("-fx-border-color:black;");
-        RegPasswordText.setStyle("-fx-border-color:black;");
-        RegRepPasswordText.setStyle("-fx-border-color:black;");
-        RegLastNameText.setStyle("-fx-border-color:black;");
-        RegFirstNameText.setStyle("-fx-border-color:black;");
+        UserNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
+        PasswordText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
+        RegUserNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
+        RegPasswordText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
+        RegRepPasswordText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
+        RegLastNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
+        RegFirstNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
         SignInBtn.setDefaultButton(false);
     }
 
@@ -110,24 +110,24 @@ public class LoginMenuController {
         String repPassword = RegRepPasswordText.getText();
         String firstName = RegFirstNameText.getText();
         String lastName = RegLastNameText.getText();
-        RegUserNameText.setStyle("-fx-border-color:black;");
-        RegPasswordText.setStyle("-fx-border-color:black;");
-        RegRepPasswordText.setStyle("-fx-border-color:black;");
-        RegLastNameText.setStyle("-fx-border-color:black;");
-        RegFirstNameText.setStyle("-fx-border-color:black;");
+        RegUserNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
+        RegPasswordText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
+        RegRepPasswordText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
+        RegLastNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
+        RegFirstNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
         boolean isAvailable=dbModel.checkUserName(userName);
         if(userName.equals("")|| !isAvailable) {
-            RegUserNameText.setStyle("-fx-border-color:red;");
+            RegUserNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:red;");
         }
         if(firstName.equals("")){
-            RegFirstNameText.setStyle("-fx-border-color:red;");
+            RegFirstNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:red;");
         }
         if(lastName.equals("")){
-            RegLastNameText.setStyle("-fx-border-color:red;");
+            RegLastNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:red;");
         }
         if(!password.equals(repPassword) || password.equals("") || password.length()<4){
-            RegPasswordText.setStyle("-fx-border-color:red;");
-            RegRepPasswordText.setStyle("-fx-border-color:red;");
+            RegPasswordText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:red;");
+            RegRepPasswordText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:red;");
         }
         if(!userName.equals("") && !firstName.equals("") && !lastName.equals("") && !password.equals("")&& password.length()>=4 &&password.equals(repPassword) && isAvailable){
             dbModel.RegisterClient(userName,password,firstName,lastName);
@@ -142,8 +142,8 @@ public class LoginMenuController {
     }
     @FXML
     void SignInBtn_click(ActionEvent event) throws IOException {
-        UserNameText.setStyle("-fx-border-color:black");
-        PasswordText.setStyle("-fx-border-color:black");
+        UserNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:black");
+        PasswordText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:black");
         DBModel dbModel = DBModel.getInstance();
         String userName = UserNameText.getText();
         String password = PasswordText.getText();
@@ -161,8 +161,8 @@ public class LoginMenuController {
             stage.show();
         }
         else{
-            UserNameText.setStyle("-fx-border-color:red");
-            PasswordText.setStyle("-fx-border-color:red");
+            UserNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:red");
+            PasswordText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:red");
         }
     }
 }
