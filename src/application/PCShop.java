@@ -15,6 +15,7 @@ public class PCShop extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("../resources/views/LoginMenuView.fxml"));
 			primaryStage.setScene(new Scene(root));
 			primaryStage.initStyle(StageStyle.DECORATED);
+			primaryStage.setResizable(false);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

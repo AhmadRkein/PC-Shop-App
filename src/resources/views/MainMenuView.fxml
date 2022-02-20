@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -25,7 +27,10 @@
             <RowConstraints maxHeight="548.0" minHeight="0.0" prefHeight="431.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <StackPane fx:id="MainPane" prefHeight="600.0" prefWidth="780.0" GridPane.columnIndex="1" GridPane.rowSpan="2" />
+            <StackPane fx:id="MainPane" prefHeight="596.0" prefWidth="780.0" GridPane.columnIndex="1" GridPane.rowSpan="2">
+               <children>
+                  <AnchorPane fx:id="content" prefHeight="599.0" prefWidth="840.0" />
+               </children></StackPane>
             <BorderPane minHeight="140.0" minWidth="220.0" prefHeight="182.0" prefWidth="220.0" style="-fx-background-color: #800000;">
                <center>
                   <ImageView fitHeight="119.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
@@ -35,10 +40,13 @@
                   </ImageView>
                </center>
                <bottom>
-                  <Label fx:id="nameLabel" alignment="CENTER" text="Name" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Label fx:id="nameLabel" alignment="CENTER" style="-fx-padding: 5; -fx-border-radius: 8; -fx-background-color: white; -fx-background-radius: 5;" text="Name" textFill="#f5a433" BorderPane.alignment="CENTER">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold Italic" size="20.0" />
                      </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Label>
                </bottom>
             </BorderPane>
@@ -48,6 +56,9 @@
                      <font>
                         <Font name="Tahoma" size="25.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#PCBuilderBtn_click" prefHeight="75.0" prefWidth="220.0" style="-fx-background-color: #800000;" text="Pc Builder" textFill="WHITE">
                      <font>
@@ -63,6 +74,9 @@
                      <font>
                         <Font name="Tahoma" size="25.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children></VBox>
          </children>

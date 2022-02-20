@@ -44,6 +44,8 @@ public abstract class Product {
 		public void setImage(Image im) {
 			image = im;
 		}
-		
+		public String toString(){
+			return this.getName()+" Price="+this.getPrice();
+		}
 		
 }
