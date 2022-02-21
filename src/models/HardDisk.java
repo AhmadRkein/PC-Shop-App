@@ -21,7 +21,7 @@ public class HardDisk extends Product {
 		return 	  "Brand: "+getBrand()
 				+ "\nName: "+getName()
 				+ "\nType: HardDisk"
-				+ "\nCapacity: " + getStorage()
+				+ "\nCapacity: " + getStorage() + "GB"
 				+ "\nPrice: " + getPrice() + "$";
 	}
 }

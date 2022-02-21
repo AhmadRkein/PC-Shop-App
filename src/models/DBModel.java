@@ -219,9 +219,9 @@ public class DBModel {
                 int id=rs.getInt("id");
                 String name=rs.getString("name");
                 String brand=rs.getString("brand");
-                Float price=rs.getFloat("price");
+                float price=rs.getFloat("price");
                 int coresNb=rs.getInt("coresNb");
-                int freq=rs.getInt("freq");
+                float freq=rs.getFloat("freq");
                 CPU cpu= (CPU) f.GenerateProduct("cpu");
                 cpu.setId(id);
                 cpu.setName(name);

@@ -20,7 +20,7 @@ public class Monitor extends Product {
 		return 	  "Brand: "+getBrand()
 				+ "\nName: "+getName()
 				+ "\nType: Monitor"
-				+ "\nSize: " + getSize()
+				+ "\nSize: " + getSize() + "inches"
 				+ "\nResolution: " + getResolution()
 				+ "\nPrice: " + getPrice() + "$";
 	}

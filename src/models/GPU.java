@@ -29,7 +29,7 @@ public class GPU extends Product {
 				+ "\nName: " + getName()
 				+ "\nType: GPU"
 				+ "\nClock Speed: " + getClockSpeed()
-				+ "\nVram Capacity: " + getVramSize()
+				+ "\nVram Capacity: " + getVramSize() + "GB"
 				+ "\nBus Type:" + getBusType()
 				+ "\nPrice: " + getPrice() + "$";
 	}
