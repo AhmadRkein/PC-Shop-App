@@ -2,25 +2,18 @@ package models;
 
 public class CPU extends Product {
 	private int CoresNb;
-	private Float Freq;
-	private int Speed;
+	private float Freq;
 	public int getCoresNb() {
 		return CoresNb;
 	}
 	public void setCoresNb(int coresNb) {
 		CoresNb = coresNb;
 	}
-	public Float getFreq() {
+	public float getFreq() {
 		return Freq;
 	}
-	public void setFreq(Float freq) {
+	public void setFreq(float freq) {
 		Freq = freq;
-	}
-	public int getSpeed() {
-		return Speed;
-	}
-	public void setSpeed(int speed) {
-		Speed = speed;
 	}
 
 	@Override
@@ -28,7 +21,7 @@ public class CPU extends Product {
 		return 	  "Brand: "+getBrand()
 				+ "\nName: "+getName()
 				+ "\nType: CPU"
-				+ "\nClock Speed: " + getSpeed()
+				+ "\nClock Speed: " + getFreq() + "GHz"
 				+ "\nNumber of Cores: " + getCoresNb()
 				+ "\nPrice: " + getPrice() + "$";
 	}

@@ -13,7 +13,7 @@ public class Ram extends Product {
 		return 	  "Brand: "+getBrand()
 				+ "\nName: "+getName()
 				+ "\nType: RAM"
-				+ "\nClock Capacity: " + getSize()
+				+ "\nClock Capacity: " + getSize() + "GB"
 				+ "\nPrice: " + getPrice() + "$";
 	}
 }
