@@ -2,17 +2,17 @@ package models;
 
 public class Monitor extends Product {
 	private int Size;
-	private int Resolution;
+	private String Resolution;
 	public int getSize() {
 		return Size;
 	}
 	public void setSize(int size) {
 		Size = size;
 	}
-	public int getResolution() {
+	public String getResolution() {
 		return Resolution;
 	}
-	public void setResolution(int resolution) {
+	public void setResolution(String resolution) {
 		Resolution = resolution;
 	}
 	@Override
