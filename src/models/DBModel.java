@@ -449,7 +449,7 @@ public class DBModel {
     public void addHardDisk(HardDisk h){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,%d)",h.getName(),h.getBrand(),h.getPrice(),h.getStorage());
+            String sql=String.format("insert into harddisk values ('%s','%s',%f,%d)",h.getName(),h.getBrand(),h.getPrice(),h.getStorage());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added hardDisk");

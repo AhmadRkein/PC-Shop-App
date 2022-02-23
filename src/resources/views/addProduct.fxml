@@ -100,7 +100,7 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="txt_price" prefHeight="28.0" prefWidth="156.0" style="-fx-border-radius: 8; -fx-background-radius: 8;">
+                        <TextField fx:id="txt_price" prefHeight="28.0" prefWidth="156.0" promptText="in $" style="-fx-border-radius: 8; -fx-background-radius: 8;">
                            <effect>
                               <DropShadow height="3.0" radius="1.0" width="3.0" />
                            </effect></TextField>
