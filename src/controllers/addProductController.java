@@ -121,7 +121,7 @@ public class addProductController {
                     txt_extra3.setVisible(false);
                     type="monitor";
                 }else if(selected.getText().equals(radioBtnHdd.getText())){
-                    label_extra.setText(("hard Disk Extra Details"));
+                    label_extra.setText(("Hard Disk Extra Details"));
                     label_extra1.setText("Storage Size");
                     label_extra2.setVisible(false);
                     txt_extra2.setVisible(false);
