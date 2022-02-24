@@ -22,8 +22,8 @@ public class DBModel {
     }
     private static Connection createConnection() {
         String server = "127.0.0.1";  //replace
-        String username="user1";                  //with
-        String password="zoom123";         //your own info
+        String username="sa";                  //with
+        String password="Mamakero@";         //your own info
         int port = 1433;
         String database = "PcShop";
         String jdbcurl;
@@ -35,7 +35,7 @@ public class DBModel {
             e.printStackTrace();
         }
         jdbcurl = "jdbc:sqlserver://" + server + ":" + port + ";user=" + username
-                + ";password=" + password + ";databasename=" + database + "";
+                + ";password=" + password + ";databasename=" + database + ";encrypt=true;trustServerCertificate=true;";
         try {
 
             con = DriverManager.getConnection(jdbcurl);
@@ -448,16 +448,37 @@ public class DBModel {
         }
     }
     public void addHardDisk(HardDisk h){
+            try {
+                Statement statement = con.createStatement();
+                String sql=String.format("insert into ram values ('%s','%s',%f,%d)",h.getName(),h.getBrand(),h.getPrice(),h.getStorage());
+                statement.execute(sql);
+                statement.close();
+                System.out.println("Successfully added hardDisk");
+            }catch (SQLException e) {
+                e.printStackTrace();
+            }
+    }
+    public void addPc(PC p, String createdBy, float totalPrice){
+        String name = createdBy + "-PC";
+        String cpuName = p.getCpu().getName();
+        String gpuName = p.getGpu().getName();
+        String ramName = p.getRam().getName();
+        String storageName = p.getStorage().getName();
+        String monitorName = p.getMonitor().getName();
+
+
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,%d)",h.getName(),h.getBrand(),h.getPrice(),h.getStorage());
+            String sql=String.format("insert into pc values ('%s','%s','%s','%s','%s','%s','%s',%f)",createdBy,name,cpuName,gpuName,ramName,storageName,monitorName , totalPrice);
+            System.out.println(sql);
             statement.execute(sql);
             statement.close();
-            System.out.println("Successfully added hardDisk");
+            System.out.println("Successfully added Pc");
         }catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 
 
 }
