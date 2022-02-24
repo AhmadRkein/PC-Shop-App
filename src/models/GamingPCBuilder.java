@@ -2,11 +2,11 @@ package models;
 
 public class GamingPCBuilder implements PCBuilder {
 	private PC _pc;
-	private int CPUID = 0; 
-	private int GPUID = 0;
-	private int RAMID = 0; 
-	private int StorageID = 0;
-	private int MonitorID = 0;
+	private int CPUID = 1;
+	private int GPUID = 1;
+	private int RAMID = 1;
+	private int StorageID = 1;
+	private int MonitorID = 1;
 	
 	
 	public GamingPCBuilder() {

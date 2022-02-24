@@ -21,9 +21,9 @@ public class DBModel {
         return _instance;
     }
     private static Connection createConnection() {
-        String server = "nasser-aspiree5576g";  //replace
-        String username="SA";                  //with
-        String password="Ameno1234@";         //your own info
+        String server = "127.0.0.1";  //replace
+        String username="sa";                  //with
+        String password="Mamakero@";         //your own info
         int port = 1433;
         String database = "PcShop";
         String jdbcurl;
@@ -35,7 +35,7 @@ public class DBModel {
             e.printStackTrace();
         }
         jdbcurl = "jdbc:sqlserver://" + server + ":" + port + ";user=" + username
-                + ";password=" + password + ";databasename=" + database + "";
+                + ";password=" + password + ";databasename=" + database + ";encrypt=true;trustServerCertificate=true;";
         try {
 
             con = DriverManager.getConnection(jdbcurl);
@@ -144,7 +144,7 @@ public class DBModel {
             product.setPrice(price);
             if(type.equalsIgnoreCase("cpu")){
                 int coresNb=rs.getInt("coresNb");
-                Float freq=rs.getFloat("freq");
+                int freq=rs.getInt("freq");
                 CPU cpu=(CPU) product;
                 cpu.setCoresNb(coresNb);
                 cpu.setFreq(freq);
@@ -162,14 +162,15 @@ public class DBModel {
             }
             else if(type.equalsIgnoreCase("ram")){
                 int size =rs.getInt("size");
-
+                boolean dram=rs.getBoolean("dram");
                 Ram ram=(Ram)product;
                 ram.setSize(size);
+                ram.setDram(dram);
                 return ram;
             }
             else if(type.equalsIgnoreCase("monitor")){
                 int size=rs.getInt("size");
-                String resolution =rs.getString("resolution");
+                int resolution =rs.getInt("resolution");
                 Monitor monitor=(Monitor) product;
                 monitor.setSize(size);
                 monitor.setResolution(resolution);
@@ -220,7 +221,7 @@ public class DBModel {
                 String brand=rs.getString("brand");
                 Float price=rs.getFloat("price");
                 int coresNb=rs.getInt("coresNb");
-                Float freq=rs.getFloat("freq");
+                int freq=rs.getInt("freq");
                 CPU cpu= (CPU) f.GenerateProduct("cpu");
                 cpu.setId(id);
                 cpu.setName(name);
@@ -279,14 +280,14 @@ public class DBModel {
                 String brand=rs.getString("brand");
                 Float price=rs.getFloat("price");
                 int size =rs.getInt("size");
-
+                boolean dram=rs.getBoolean("dram");
                 Ram p= (Ram) f.GenerateProduct("ram");
 
                 p.setId(id);
                 p.setName(name);
                 p.setBrand(brand);
                 p.setPrice(price);
-
+                p.setDram(dram);
                 p.setSize(size);
                 list.add(p);
             }
@@ -309,7 +310,7 @@ public class DBModel {
                 String brand=rs.getString("brand");
                 Float price=rs.getFloat("price");
                 int size=rs.getInt("size");
-                String resolution =rs.getString("resolution");
+                int resolution =rs.getInt("resolution");
                 Monitor p= (Monitor) f.GenerateProduct("monitor");
 
                 p.setId(id);
@@ -402,7 +403,7 @@ public class DBModel {
     public void addCpu(CPU cpu){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into cpu values ('%s','%s',%f,%d,%f)",cpu.getName(),cpu.getBrand(),cpu.getPrice(),cpu.getCoresNb(),cpu.getFreq());
+            String sql=String.format("insert into cpu values ('%s','%s',%f,'%s',%d,%d)",cpu.getName(),cpu.getBrand(),cpu.getPrice(),cpu.getProductType(),cpu.getCoresNb(),cpu.getFreq());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added CPU");
@@ -427,7 +428,7 @@ public class DBModel {
     public void addRam(Ram ram){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,%d)",ram.getName(),ram.getBrand(),ram.getPrice(),ram.getSize());
+            String sql=String.format("insert into ram values ('%s','%s',%f,%d,%d)",ram.getName(),ram.getBrand(),ram.getPrice(),ram.getSize(),ram.isDram());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added Ram");
@@ -438,7 +439,7 @@ public class DBModel {
     public void addMonitor(Monitor m){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into monitor values ('%s','%s',%f,%d,'%s')",m.getName(),m.getBrand(),m.getPrice(),m.getSize(),m.getResolution());
+            String sql=String.format("insert into ram values ('%s','%s',%f,%d,%d)",m.getName(),m.getBrand(),m.getPrice(),m.getSize(),m.getResolution());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added Monitor");
@@ -447,16 +448,37 @@ public class DBModel {
         }
     }
     public void addHardDisk(HardDisk h){
+            try {
+                Statement statement = con.createStatement();
+                String sql=String.format("insert into ram values ('%s','%s',%f,%d)",h.getName(),h.getBrand(),h.getPrice(),h.getStorage());
+                statement.execute(sql);
+                statement.close();
+                System.out.println("Successfully added hardDisk");
+            }catch (SQLException e) {
+                e.printStackTrace();
+            }
+    }
+    public void addPc(PC p, String createdBy, float totalPrice){
+        String name = createdBy + "-PC";
+        String cpuName = p.getCpu().getName();
+        String gpuName = p.getGpu().getName();
+        String ramName = p.getRam().getName();
+        String storageName = p.getStorage().getName();
+        String monitorName = p.getMonitor().getName();
+
+
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into harddisk values ('%s','%s',%f,%d)",h.getName(),h.getBrand(),h.getPrice(),h.getStorage());
+            String sql=String.format("insert into pc values ('%s','%s','%s','%s','%s','%s','%s',%f)",createdBy,name,cpuName,gpuName,ramName,storageName,monitorName , totalPrice);
+            System.out.println(sql);
             statement.execute(sql);
             statement.close();
-            System.out.println("Successfully added hardDisk");
+            System.out.println("Successfully added Pc");
         }catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 
 
 }

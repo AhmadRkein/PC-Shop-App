@@ -2,11 +2,11 @@ package models;
 
 public class BudgetPCBuilder implements PCBuilder {
 	private PC _pc;
-	private int CPUID = 0; 
-	private int GPUID = 0;
-	private int RAMID = 0; 
-	private int StorageID = 0;
-	private int MonitorID = 0;
+	private int CPUID = 2;
+	private int GPUID = 2;
+	private int RAMID = 2;
+	private int StorageID = 2;
+	private int MonitorID = 2;
 	
 	
 	public BudgetPCBuilder() {
