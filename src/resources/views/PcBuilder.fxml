@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PcBuilderController">
+   <children>
+      <BorderPane style="-fx-background-color: white;">
+         <top>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="70.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="20.0" top="50.0" />
+               </BorderPane.margin>
+               <children>
+                  <Button fx:id="gamingBtn" defaultButton="true" mnemonicParsing="false" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="gaming" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="budgetBtn" defaultButton="true" mnemonicParsing="false" onMouseClicked="#setBudgetPc" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="budget" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="customBtn" defaultButton="true" mnemonicParsing="false" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="custom" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <ScrollPane hbarPolicy="NEVER" maxWidth="780.0" minWidth="780.0" vvalue="1.0" BorderPane.alignment="CENTER">
+               <content>
+                  <FlowPane fx:id="ItemPanel" alignment="TOP_CENTER" columnHalignment="CENTER" hgap="30.0" vgap="30.0">
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding>
+                     <children>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" spacing="30.0">
+                           <children>
+                              <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="600.0" spacing="50.0">
+                                 <children>
+                                    <ImageView fitHeight="91.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/monitor.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="22.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label prefHeight="79.0" prefWidth="194.0" style="-fx-font-size: 15;" text="monitor" textFill="MAROON">
+                                             <font>
+                                                <Font name="Tahoma" size="42.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="22.0" />
+                                             </padding>
+                                          </Label>
+                                          <ChoiceBox fx:id="MonitorChoices" prefWidth="150.0" style="-fx-border-radius: 10;" />
+                                       </children>
+                                    </VBox>
+                                    <Label id="MonitorLabel" fx:id="MonitorLabel" alignment="CENTER" prefHeight="35.0" prefWidth="154.0" style="-fx-background-color: #d33939; -fx-background-radius: 20;" text="0 $" textAlignment="CENTER" textFill="WHITE">
+                                       <HBox.margin>
+                                          <Insets top="50.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" spacing="50.0">
+                                 <children>
+                                    <ImageView fitHeight="91.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/vga.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="22.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label lineSpacing="60.0" prefHeight="79.0" prefWidth="194.0" style="-fx-font-size: 15;" text="GPU" textFill="MAROON">
+                                             <font>
+                                                <Font name="Tahoma" size="42.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="22.0" />
+                                             </padding>
+                                          </Label>
+                                          <ChoiceBox fx:id="GPUChoices" prefWidth="150.0" style="-fx-border-radius: 10;" />
+                                       </children>
+                                    </VBox>
+                                    <Label id="GPULabel" fx:id="GPULabel" alignment="CENTER" prefHeight="33.0" prefWidth="155.0" style="-fx-background-color: #d33939; -fx-background-radius: 20;" text="0 $" textAlignment="CENTER" textFill="WHITE">
+                                       <HBox.margin>
+                                          <Insets top="50.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" spacing="50.0">
+                                 <children>
+                                    <ImageView fitHeight="91.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/ram.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="22.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label prefHeight="79.0" prefWidth="194.0" style="-fx-font-size: 15;" text="RAM" textFill="MAROON">
+                                             <font>
+                                                <Font name="Tahoma" size="42.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="22.0" />
+                                             </padding>
+                                          </Label>
+                                          <ChoiceBox fx:id="RAMChoices" prefWidth="150.0" style="-fx-border-radius: 10;" />
+                                       </children>
+                                    </VBox>
+                                    <Label id="RAMLabel" fx:id="RAMLabel" alignment="CENTER" prefHeight="33.0" prefWidth="155.0" style="-fx-background-color: #d33939; -fx-background-radius: 20;" text="0 $" textAlignment="CENTER" textFill="WHITE">
+                                       <HBox.margin>
+                                          <Insets top="50.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="101.0" prefWidth="5047.0" spacing="50.0">
+                                 <children>
+                                    <ImageView fitHeight="91.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/cpu.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="22.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label prefHeight="79.0" prefWidth="194.0" style="-fx-font-size: 15;" text="CPU" textFill="MAROON">
+                                             <font>
+                                                <Font name="Tahoma" size="42.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="22.0" />
+                                             </padding>
+                                          </Label>
+                                          <ChoiceBox fx:id="CPUChoices" prefWidth="150.0" style="-fx-border-radius: 10;" />
+                                       </children>
+                                    </VBox>
+                                    <Label id="CPULabel" fx:id="CPULabel" alignment="CENTER" prefHeight="33.0" prefWidth="155.0" style="-fx-background-color: #d33939; -fx-background-radius: 20;" text="0 $" textAlignment="CENTER" textFill="WHITE">
+                                       <HBox.margin>
+                                          <Insets top="50.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" spacing="50.0">
+                                 <children>
+                                    <ImageView fitHeight="91.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/hdd.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="22.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label prefHeight="79.0" prefWidth="194.0" style="-fx-font-size: 15;" text="Storage" textFill="MAROON">
+                                             <font>
+                                                <Font name="Tahoma" size="42.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="22.0" />
+                                             </padding>
+                                          </Label>
+                                          <ChoiceBox fx:id="StorageChoices" prefWidth="150.0" style="-fx-border-radius: 10;" />
+                                       </children>
+                                    </VBox>
+                                    <Label id="StorageLabel" fx:id="StorageLabel" alignment="CENTER" prefHeight="33.0" prefWidth="155.0" style="-fx-background-color: #d33939; -fx-background-radius: 20;" text="0 $" textAlignment="CENTER" textFill="WHITE">
+                                       <HBox.margin>
+                                          <Insets top="50.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="600.0">
+                                 <children>
+                                    <Label id="StorageLabel" fx:id="totalPrice" alignment="CENTER" contentDisplay="CENTER" minHeight="33.0" minWidth="155.0" prefHeight="33.0" prefWidth="155.0" style="-fx-background-radius: 20;" text="total price : " textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets right="40.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Button fx:id="addToCardBtn" alignment="CENTER" defaultButton="true" mnemonicParsing="false" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: maroon; -fx-background-radius: 8; -fx-font-size: 14;" text="add to card" textAlignment="CENTER" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma" size="22.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </FlowPane>
+               </content>
+            </ScrollPane>
+         </left>
+      </BorderPane>
+   </children>
+</StackPane>

@@ -1,5 +1,7 @@
 package controllers;
 
+import com.sun.javafx.FXPermissions;
+import com.sun.javafx.fxml.FXMLLoaderHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,11 +42,9 @@ public class MainMenuController {
         Stage stage;
         Scene scene;
         Parent root;
-        root = FXMLLoader.load(getClass().getResource("../resources/views/LoginMenuView.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+
+
+
     }
 
     @FXML
@@ -55,8 +55,10 @@ public class MainMenuController {
     }
 
     @FXML
-    void PCBuilderBtn_click(ActionEvent event) {
-
+    void PCBuilderBtn_click(ActionEvent event) throws IOException  {
+        Parent PCBuilder;
+        PCBuilder = FXMLLoader.load(getClass().getResource("../resources/views/PcBuilder.fxml"));
+        content.getChildren().add(PCBuilder);
     }
 
     @FXML
