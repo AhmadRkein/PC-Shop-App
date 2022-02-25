@@ -424,6 +424,8 @@ public class DBModel {
             e.printStackTrace();
         }
     }
+
+
     public void addRam(Ram ram){
         try {
             Statement statement = con.createStatement();
