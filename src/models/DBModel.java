@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import models.users.Client;
+import models.users.CurrentUser;
 import models.users.Employee;
 import models.users.User;
 
@@ -21,9 +22,9 @@ public class DBModel {
         return _instance;
     }
     private static Connection createConnection() {
-        String server = "127.0.0.1";  //replace
-        String username="user1";                  //with
-        String password="zoom123";         //your own info
+        String server = "nasser-aspiree5576g";  //replace
+        String username="SA";                  //with
+        String password="Ameno1234@";         //your own info
         int port = 1433;
         String database = "PcShop";
         String jdbcurl;
@@ -61,7 +62,6 @@ public class DBModel {
         }
         return false;
     }
-
 
     public void RegisterClient(String userName,String password,String firstName,String lastName ){
         try {
@@ -144,7 +144,7 @@ public class DBModel {
             product.setPrice(price);
             if(type.equalsIgnoreCase("cpu")){
                 int coresNb=rs.getInt("coresNb");
-                int freq=rs.getInt("freq");
+                Float freq=rs.getFloat("freq");
                 CPU cpu=(CPU) product;
                 cpu.setCoresNb(coresNb);
                 cpu.setFreq(freq);
@@ -162,15 +162,14 @@ public class DBModel {
             }
             else if(type.equalsIgnoreCase("ram")){
                 int size =rs.getInt("size");
-                boolean dram=rs.getBoolean("dram");
+
                 Ram ram=(Ram)product;
                 ram.setSize(size);
-                ram.setDram(dram);
                 return ram;
             }
             else if(type.equalsIgnoreCase("monitor")){
                 int size=rs.getInt("size");
-                int resolution =rs.getInt("resolution");
+                String resolution =rs.getString("resolution");
                 Monitor monitor=(Monitor) product;
                 monitor.setSize(size);
                 monitor.setResolution(resolution);
@@ -219,9 +218,9 @@ public class DBModel {
                 int id=rs.getInt("id");
                 String name=rs.getString("name");
                 String brand=rs.getString("brand");
-                float price=rs.getFloat("price");
+                Float price=rs.getFloat("price");
                 int coresNb=rs.getInt("coresNb");
-                float freq=rs.getFloat("freq");
+                Float freq=rs.getFloat("freq");
                 CPU cpu= (CPU) f.GenerateProduct("cpu");
                 cpu.setId(id);
                 cpu.setName(name);
@@ -280,14 +279,14 @@ public class DBModel {
                 String brand=rs.getString("brand");
                 Float price=rs.getFloat("price");
                 int size =rs.getInt("size");
-                boolean dram=rs.getBoolean("dram");
+
                 Ram p= (Ram) f.GenerateProduct("ram");
 
                 p.setId(id);
                 p.setName(name);
                 p.setBrand(brand);
                 p.setPrice(price);
-                p.setDram(dram);
+
                 p.setSize(size);
                 list.add(p);
             }
@@ -310,7 +309,7 @@ public class DBModel {
                 String brand=rs.getString("brand");
                 Float price=rs.getFloat("price");
                 int size=rs.getInt("size");
-                int resolution =rs.getInt("resolution");
+                String resolution =rs.getString("resolution");
                 Monitor p= (Monitor) f.GenerateProduct("monitor");
 
                 p.setId(id);
@@ -403,7 +402,7 @@ public class DBModel {
     public void addCpu(CPU cpu){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into cpu values ('%s','%s',%f,'%s',%d,%d)",cpu.getName(),cpu.getBrand(),cpu.getPrice(),cpu.getProductType(),cpu.getCoresNb(),cpu.getFreq());
+            String sql=String.format("insert into cpu values ('%s','%s',%f,%d,%f)",cpu.getName(),cpu.getBrand(),cpu.getPrice(),cpu.getCoresNb(),cpu.getFreq());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added CPU");
@@ -425,10 +424,12 @@ public class DBModel {
             e.printStackTrace();
         }
     }
+
+
     public void addRam(Ram ram){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,%d,%d)",ram.getName(),ram.getBrand(),ram.getPrice(),ram.getSize(),ram.isDram());
+            String sql=String.format("insert into ram values ('%s','%s',%f,%d)",ram.getName(),ram.getBrand(),ram.getPrice(),ram.getSize());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added Ram");
@@ -439,7 +440,7 @@ public class DBModel {
     public void addMonitor(Monitor m){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,%d,%d)",m.getName(),m.getBrand(),m.getPrice(),m.getSize(),m.getResolution());
+            String sql=String.format("insert into monitor values ('%s','%s',%f,%d,'%s')",m.getName(),m.getBrand(),m.getPrice(),m.getSize(),m.getResolution());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added Monitor");
@@ -450,7 +451,7 @@ public class DBModel {
     public void addHardDisk(HardDisk h){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,%d)",h.getName(),h.getBrand(),h.getPrice(),h.getStorage());
+            String sql=String.format("insert into harddisk values ('%s','%s',%f,%d)",h.getName(),h.getBrand(),h.getPrice(),h.getStorage());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added hardDisk");

@@ -9,16 +9,17 @@ create table cpu(
     brand char(10) null,
     price FLOAT null,
     coresNb int not null,
-    freq FLOAT not null,
+    freq float not null,
     PRIMARY KEY (id)
 )
+drop table cpu
 create table gpu(
     id int IDENTITY(1,1) not null,
     name varchar(30) not null,
     brand char(10) null,
     price FLOAT null,
-    clockSpeed FLOAT not null,
-    vram float not null,
+    clockSpeed int not null,
+    vram int not null,
     busType VARCHAR(10) not null,
     PRIMARY KEY (id)
 
@@ -29,9 +30,9 @@ create table ram(
     brand char(10) null,
     price FLOAT null,
     size int not null,
-    dram int not null,
     PRIMARY KEY (id)
 )
+drop table ram
 create table monitor(
    id int IDENTITY(1,1) not null,
     name varchar(30) not null,
