@@ -165,7 +165,7 @@ public class DBModel {
                 boolean dram=rs.getBoolean("dram");
                 Ram ram=(Ram)product;
                 ram.setSize(size);
-                ram.setDram(dram);
+
                 return ram;
             }
             else if(type.equalsIgnoreCase("monitor")){
@@ -287,7 +287,6 @@ public class DBModel {
                 p.setName(name);
                 p.setBrand(brand);
                 p.setPrice(price);
-                p.setDram(dram);
                 p.setSize(size);
                 list.add(p);
             }
@@ -428,7 +427,7 @@ public class DBModel {
     public void addRam(Ram ram){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into ram values ('%s','%s',%f,%d,%d)",ram.getName(),ram.getBrand(),ram.getPrice(),ram.getSize(),ram.isDram());
+            String sql=String.format("insert into ram values ('%s','%s',%f,%d,%d)",ram.getName(),ram.getBrand(),ram.getPrice(),ram.getSize());
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added Ram");

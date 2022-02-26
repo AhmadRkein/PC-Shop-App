@@ -207,7 +207,7 @@ public class addProductController {
                 if(!txt_extra2.equals("")){
                 Monitor monitor = (Monitor) product;
                 monitor.setSize(Integer.parseInt(txt_extra1.getText()));
-                monitor.setResolution(txt_extra2.getText());
+                monitor.setResolution(Integer.valueOf(txt_extra2.getText()));
                 dbModel.addMonitor(monitor);}
             }
             txt_name.setText("");

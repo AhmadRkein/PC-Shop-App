@@ -65,5 +65,12 @@ public class MainMenuController {
     void SettingsBtn_click(ActionEvent event) {
 
     }
+    @FXML
+    void goto_add_product(ActionEvent event) throws IOException{
+        Parent addProduct;
+        addProduct = FXMLLoader.load(getClass().getResource("../resources/views/addProduct.fxml"));
+        content.getChildren().add(addProduct);
+    }
+
 
 }
