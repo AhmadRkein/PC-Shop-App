@@ -79,7 +79,7 @@ content.getChildren().clear();
     }
 
     @FXML
-    void SettingsBtn_click(ActionEvent event) {
+    void SettingsBtn_click(ActionEvent event) throws IOException {
 
     }
 

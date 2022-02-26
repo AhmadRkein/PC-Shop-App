@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import models.users.Client;
+import models.users.CurrentUser;
 import models.users.Employee;
 import models.users.User;
 
@@ -61,7 +62,6 @@ public class DBModel {
         }
         return false;
     }
-
 
     public void RegisterClient(String userName,String password,String firstName,String lastName ){
         try {
