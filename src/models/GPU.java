@@ -28,7 +28,7 @@ public class GPU extends Product {
 		return "Brand: " + getBrand()
 				+ "\nName: " + getName()
 				+ "\nType: GPU"
-				+ "\nClock Speed: " + getClockSpeed()
+				+ "\nClock Speed: " + getClockSpeed() + "GHz"
 				+ "\nVram Capacity: " + getVramSize() + "GB"
 				+ "\nBus Type:" + getBusType()
 				+ "\nPrice: " + getPrice() + "$";

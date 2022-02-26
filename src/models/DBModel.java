@@ -22,9 +22,9 @@ public class DBModel {
         return _instance;
     }
     private static Connection createConnection() {
-        String server = "nasser-aspiree5576g";  //replace
-        String username="SA";                  //with
-        String password="Ameno1234@";         //your own info
+        String server = "localhost";  //replace
+        String username="user1";                  //with
+        String password="zoom123";         //your own info
         int port = 1433;
         String database = "PcShop";
         String jdbcurl;
