@@ -43,19 +43,19 @@ public class ProductFlyWeight {
 				CPUMap.put(pid, p);
 				break;
 			case GPU:
-				p = GPUMap.put(pid, p);
+				GPUMap.put(pid, p);
 				break;
 			case RAM:
-				p = RAMMap.put(pid, p);
+				RAMMap.put(pid, p);
 				break;
 			case HARDDISK:
-				p = STORAGEMap.put(pid, p);
+				STORAGEMap.put(pid, p);
 				break;
 			case MONITOR:
-				p = MONITORMap.put(pid, p);
+				MONITORMap.put(pid, p);
 				break;
 			case PC:
-				p = PCMap.put(pid, p);
+				PCMap.put(pid, p);
 				break;
 			}
 		}

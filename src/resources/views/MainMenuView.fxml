@@ -72,11 +72,17 @@
                      <font>
                         <Font name="Tahoma" size="25.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SettingsBtn_click" prefHeight="75.0" prefWidth="220.0" style="-fx-background-color: #800000;" text="Settings" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="25.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#LogOutBtn_click" prefHeight="75.0" prefWidth="220.0" style="-fx-background-color: #800000;" text="Log Out" textFill="WHITE">
                      <font>

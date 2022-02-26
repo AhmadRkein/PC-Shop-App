@@ -462,16 +462,16 @@ public class DBModel {
 
     public void addPc(PC p, String createdBy, float totalPrice){
         String name = createdBy + "-PC";
-        String cpuName = p.getCpu().getName();
-        String gpuName = p.getGpu().getName();
-        String ramName = p.getRam().getName();
-        String storageName = p.getStorage().getName();
-        String monitorName = p.getMonitor().getName();
+        int cpuId = p.getCpu().getId();
+        int gpuId = p.getGpu().getId();
+        int ramId = p.getRam().getId();
+        int storageId = p.getStorage().getId();
+        int monitorId = p.getMonitor().getId();
 
 
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert into pc values ('%s','%s','%s','%s','%s','%s','%s',%f)",createdBy,name,cpuName,gpuName,ramName,storageName,monitorName , totalPrice);
+            String sql=String.format("insert into pc values ('%s','%s','%f','%d','%d','%d','%d',%d)",name,createdBy,totalPrice,cpuId,gpuId,ramId,monitorId,storageId );
             System.out.println(sql);
             statement.execute(sql);
             statement.close();

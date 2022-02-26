@@ -1,6 +1,15 @@
 use master
+go
+
+ALTER DATABASE [PcShop] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
+GO
+
+DROP DATABASE IF EXISTS PcShop
+go
+
 create database PcShop
 go
+
 use PcShop
 go
 create table cpu(
@@ -12,7 +21,7 @@ create table cpu(
     freq float not null,
     PRIMARY KEY (id)
 )
-drop table cpu
+
 create table gpu(
     id int IDENTITY(1,1) not null,
     name varchar(30) not null,
@@ -24,6 +33,7 @@ create table gpu(
     PRIMARY KEY (id)
 
 )
+
 create table ram(
    id int IDENTITY(1,1) not null,
     name varchar(30) not null,
@@ -32,7 +42,7 @@ create table ram(
     size int not null,
     PRIMARY KEY (id)
 )
-drop table ram
+
 create table monitor(
    id int IDENTITY(1,1) not null,
     name varchar(30) not null,
@@ -43,6 +53,7 @@ create table monitor(
     PRIMARY KEY (id)
 
 )
+
 create table hardDisk(
    id int IDENTITY(1,1) not null,
     name varchar(30) not null,
@@ -51,10 +62,11 @@ create table hardDisk(
     storage int null,
     PRIMARY KEY (id)
 )
+
 create table pc(
     id int IDENTITY(1,1) not null,
-    name varchar(30) not null,
-    brand char(10) null,
+    Name varchar(50) not null,
+    Creator varchar(50) null,
     price FLOAT null,
     cpuId int null,
     gpuId int null,

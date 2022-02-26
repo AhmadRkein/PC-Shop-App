@@ -36,7 +36,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button fx:id="budgetBtn" defaultButton="true" mnemonicParsing="false" onMouseClicked="#setBudgetPc" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="budget" textFill="WHITE">
+                  <Button fx:id="budgetBtn" defaultButton="true" mnemonicParsing="false" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="budget" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="22.0" />
                      </font>
@@ -62,7 +62,7 @@
             </HBox>
          </top>
          <left>
-            <ScrollPane hbarPolicy="NEVER" maxWidth="780.0" minWidth="780.0" vvalue="1.0" BorderPane.alignment="CENTER">
+            <ScrollPane hbarPolicy="NEVER" maxWidth="780.0" minWidth="780.0" BorderPane.alignment="CENTER">
                <content>
                   <FlowPane fx:id="ItemPanel" alignment="TOP_CENTER" columnHalignment="CENTER" hgap="30.0" vgap="30.0">
                      <padding>
