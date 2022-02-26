@@ -96,8 +96,8 @@ public class DBModel {
             ResultSet rs= statement.executeQuery(sql);
             if(rs.next()){
 //                return 1;//client
-                String fn = rs.getString("firstName");
-                String ln = rs.getString("lastName");
+                String fn = rs.getString("firstName").strip();
+                String ln = rs.getString("lastName").strip();
                 statement.close();
                 return new Client(userName, password, fn, ln);
             }
@@ -106,8 +106,8 @@ public class DBModel {
                 rs=statement.executeQuery(sql);
                 if(rs.next()){
 //                  return 2;//employee
-                    String fn = rs.getString("firstName");
-                    String ln = rs.getString("lastName");
+                    String fn = rs.getString("firstName").strip();
+                    String ln = rs.getString("lastName").strip();
                     Boolean isAdmin = rs.getBoolean("isAdmin");
                     statement.close();
                     return new Employee(userName, password, fn, ln, isAdmin);
@@ -134,8 +134,8 @@ public class DBModel {
             String sql=String.format("select * from %s where id=%d",type,id);
             ResultSet rs= statement.executeQuery(sql);
             rs.next();
-            String name=rs.getString("name");
-            String brand=rs.getString("brand");
+            String name=rs.getString("name").strip();
+            String brand=rs.getString("brand").strip();
             Float price=rs.getFloat("price");
             product=productFactory.GenerateProduct(type);
             product.setId(id);
@@ -153,7 +153,7 @@ public class DBModel {
             else if(type.equalsIgnoreCase("gpu")){
                 int clockspeed=rs.getInt("clockspeed");
                 int vram =rs.getInt("vram");
-                String busType =rs.getString("busType");
+                String busType =rs.getString("busType").strip();
                 GPU gpu=(GPU) product;
                 gpu.setClockSpeed(clockspeed);
                 gpu.setVramSize(vram);
@@ -169,7 +169,7 @@ public class DBModel {
             }
             else if(type.equalsIgnoreCase("monitor")){
                 int size=rs.getInt("size");
-                String resolution =rs.getString("resolution");
+                String resolution =rs.getString("resolution").strip();
                 Monitor monitor=(Monitor) product;
                 monitor.setSize(size);
                 monitor.setResolution(resolution);
@@ -216,8 +216,8 @@ public class DBModel {
             ResultSet rs= statement.executeQuery("select * from cpu");
             while(rs.next()){
                 int id=rs.getInt("id");
-                String name=rs.getString("name");
-                String brand=rs.getString("brand");
+                String name=rs.getString("name").strip();
+                String brand=rs.getString("brand").strip();
                 Float price=rs.getFloat("price");
                 int coresNb=rs.getInt("coresNb");
                 Float freq=rs.getFloat("freq");
@@ -243,12 +243,12 @@ public class DBModel {
             ResultSet rs= statement.executeQuery("select * from gpu");
             while(rs.next()){
                 int id=rs.getInt("id");
-                String name=rs.getString("name");
-                String brand=rs.getString("brand");
+                String name=rs.getString("name").strip();
+                String brand=rs.getString("brand").strip();
                 Float price=rs.getFloat("price");
                 int clockspeed=rs.getInt("clockspeed");
                 int vram =rs.getInt("vram");
-                String busType =rs.getString("busType");
+                String busType =rs.getString("busType").strip();
                 GPU p= (GPU) f.GenerateProduct("gpu");
 
                 p.setId(id);
@@ -275,8 +275,8 @@ public class DBModel {
             ResultSet rs= statement.executeQuery("select * from ram");
             while(rs.next()){
                 int id=rs.getInt("id");
-                String name=rs.getString("name");
-                String brand=rs.getString("brand");
+                String name=rs.getString("name").strip();
+                String brand=rs.getString("brand").strip();
                 Float price=rs.getFloat("price");
                 int size =rs.getInt("size");
 
@@ -305,11 +305,11 @@ public class DBModel {
             ResultSet rs= statement.executeQuery("select * from monitor");
             while(rs.next()){
                 int id=rs.getInt("id");
-                String name=rs.getString("name");
-                String brand=rs.getString("brand");
+                String name=rs.getString("name").strip();
+                String brand=rs.getString("brand").strip();
                 Float price=rs.getFloat("price");
                 int size=rs.getInt("size");
-                String resolution =rs.getString("resolution");
+                String resolution =rs.getString("resolution").strip();
                 Monitor p= (Monitor) f.GenerateProduct("monitor");
 
                 p.setId(id);
@@ -336,8 +336,8 @@ public class DBModel {
             ResultSet rs= statement.executeQuery("select * from hardDisk");
             while(rs.next()){
                 int id=rs.getInt("id");
-                String name=rs.getString("name");
-                String brand=rs.getString("brand");
+                String name=rs.getString("name").strip();
+                String brand=rs.getString("brand").strip();
                 Float price=rs.getFloat("price");
                 int storage=rs.getInt("storage");
                 HardDisk p= (HardDisk) f.GenerateProduct("harddisk");
@@ -364,8 +364,8 @@ public class DBModel {
             ResultSet rs= statement.executeQuery("select * from pc");
             while(rs.next()){
                 int id=rs.getInt("id");
-                String name=rs.getString("name");
-                String brand=rs.getString("brand");
+                String name=rs.getString("name").strip();
+                String brand=rs.getString("brand").strip();
                 Float price=rs.getFloat("price");
                 int cpuId=rs.getInt("cpuId");
                 int gpuId=rs.getInt("gpuId");

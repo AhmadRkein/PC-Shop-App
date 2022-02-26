@@ -45,7 +45,7 @@ public abstract class Product {
 			image = im;
 		}
 		public String toString(){
-			return this.getName()+" Price="+this.getPrice();
+			return this.getName() + "\t" + this.getPrice() + "$";
 		}
 		public abstract String getDescription();
 
