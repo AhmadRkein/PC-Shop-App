@@ -13,8 +13,12 @@ import models.users.CurrentUser;
 import models.users.Employee;
 import models.users.User;
 
+import javax.naming.Name;
+
 public class SettingsController {
     private int isAdmin=0;
+
+    private Label NameLabel;
 
     @FXML
     private BorderPane addEmployeePane;
@@ -81,12 +85,17 @@ public class SettingsController {
     private Button submit_btn;
 
     @FXML
+    private Button Reset_btn;
+
+    @FXML
     public void initialize(){
         go_to_addEmployee.setManaged(false);
         if(CurrentUser.getUser() instanceof Employee){
             Employee employee=(Employee) CurrentUser.getUser();
             if(employee.isAdmin()){
-            go_to_addEmployee.setManaged(true);}
+                go_to_addEmployee.setManaged(true);
+                go_to_addEmployee.setDisable(false);
+            }
         }
         settingsPane.toFront();
         newFirstNameText.setText(CurrentUser.getUser().getFirstName());
@@ -145,6 +154,7 @@ public class SettingsController {
             RegRepPasswordText.setText("");
             RegLastNameText.setText("");
             RegFirstNameText.setText("");
+            radio_employee.setSelected(true);
         }
     }
 
@@ -153,6 +163,8 @@ public class SettingsController {
         editInfoPane.toBack();
         addEmployeePane.toBack();
         settingsPane.toFront();
+        RegisterBtn.setDefaultButton(false);
+        submit_btn.setDefaultButton(false);
     }
 
 
@@ -161,6 +173,16 @@ public class SettingsController {
         editInfoPane.toBack();
         settingsPane.toBack();
         addEmployeePane.toFront();
+
+        RegUserNameText.setText("");
+        RegPasswordText.setText("");
+        RegRepPasswordText.setText("");
+        RegLastNameText.setText("");
+        RegFirstNameText.setText("");
+        radio_employee.setSelected(true);
+
+        RegisterBtn.setDefaultButton(true);
+        submit_btn.setDefaultButton(false);
     }
 
     @FXML
@@ -169,6 +191,10 @@ public class SettingsController {
         settingsPane.toBack();
         addEmployeePane.toBack();
 
+        ResetInfo(null);
+
+        RegisterBtn.setDefaultButton(false);
+        submit_btn.setDefaultButton(true);
     }
 
     @FXML
@@ -182,23 +208,48 @@ public class SettingsController {
         newRepPasswordText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
         newLastNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
         newFirstNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
+        boolean error = false;
         if(firstName.equals("")){
             newFirstNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:red;");
+            error = true;
         }
         if(lastName.equals("")){
             newLastNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:red;");
+            error = true;
         }
-        if(!password.equals(repPassword) || password.equals("") || password.length()<4){
+        if(!password.equals(repPassword) || (!password.equals("") && password.length()<4)){
             newPasswordText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:red;");
             newRepPasswordText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:red;");
+            error = true;
         }
-        if(!firstName.equals("") && !lastName.equals("") && !password.equals("")&& password.length()>=4 &&password.equals(repPassword)){
+        if(!error){
+            if(password.equals(""))
+                password = CurrentUser.getUser().getpassword();
             dbModel.updateUserInfo(CurrentUser.getUser().getusername(),firstName,lastName,password);
             CurrentUser.setUser(dbModel.SignIn(CurrentUser.getUser().getusername(), password));
             newFirstNameText.setText(CurrentUser.getUser().getFirstName());
             newLastNameText.setText(CurrentUser.getUser().getLastName());
             settingsPane.toFront();
+            if (NameLabel != null)
+                NameLabel.setText(CurrentUser.getUser().getname());
         }
+    }
+
+
+    @FXML
+    void ResetInfo(ActionEvent event) {
+        newFirstNameText.setText(CurrentUser.getUser().getFirstName());
+        newLastNameText.setText(CurrentUser.getUser().getLastName());
+        newPasswordText.setText("");
+        newRepPasswordText.setText("");
+    }
+
+    public void setNameLabel(Label label){
+        NameLabel = label;
+    }
+
+    public Label getNameLabel(){
+        return NameLabel;
     }
 
 }

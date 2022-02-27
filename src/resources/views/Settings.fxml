@@ -18,156 +18,6 @@
 
 <StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingsController">
    <children>
-      <BorderPane fx:id="editInfoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="781.0">
-         <center>
-            <VBox fx:id="RegisterPane" alignment="CENTER" prefHeight="443.0" prefWidth="357.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-               <children>
-                  <BorderPane>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <left>
-                        <ImageView fitHeight="41.0" fitWidth="31.0" onMouseClicked="#BackBtn_click" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                           <image>
-                              <Image url="@../images/back.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <DropShadow />
-                           </effect>
-                        </ImageView>
-                     </left>
-                  </BorderPane>
-                  <Label text="Edit Info" textAlignment="CENTER" textFill="MAROON">
-                     <font>
-                        <Font name="Tahoma" size="35.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="newFirstNameText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="New First Name" style="-fx-background-radius: 8; -fx-border-radius: 8;">
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </TextField>
-                  <TextField fx:id="newLastNameText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="Newl last Name" style="-fx-background-radius: 8; -fx-border-radius: 8;">
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </TextField>
-                  <PasswordField fx:id="newPasswordText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="New Password" style="-fx-background-radius: 8; -fx-border-radius: 8;">
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </PasswordField>
-                  <PasswordField fx:id="newRepPasswordText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="Repeat New Password" style="-fx-background-radius: 8; -fx-border-radius: 8;">
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </PasswordField>
-                  <Button fx:id="submit_btn" defaultButton="true" mnemonicParsing="false" onAction="#submitInfo" prefHeight="47.0" prefWidth="185.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="Submit" textFill="WHITE">
-                     <font>
-                        <Font name="Tahoma" size="22.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
-                     </VBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </Button>
-               </children>
-            </VBox>
-         </center>
-      </BorderPane>
-      <BorderPane fx:id="settingsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="781.0">
-         <center>
-            <VBox fx:id="RegisterPane2" alignment="CENTER" prefHeight="443.0" prefWidth="357.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-               <children>
-                  <Label text="Settings" textAlignment="CENTER" textFill="MAROON">
-                     <font>
-                        <Font name="Tahoma" size="35.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="100.0" />
-                     </VBox.margin>
-                  </Label>
-                  <BorderPane>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </BorderPane>
-                  <Button fx:id="go_to_editInfo" defaultButton="true" mnemonicParsing="false" onAction="#goToEditInfo" prefHeight="47.0" prefWidth="185.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="Edit Info" textFill="WHITE">
-                     <font>
-                        <Font name="Tahoma" size="22.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
-                     </VBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </Button>
-                  <Button fx:id="go_to_addEmployee" defaultButton="true" mnemonicParsing="false" onAction="#goToAddEmployee" prefHeight="47.0" prefWidth="185.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="Add Employee" textFill="WHITE">
-                     <font>
-                        <Font name="Tahoma" size="22.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </Button>
-               </children>
-            </VBox>
-         </center>
-      </BorderPane>
       <BorderPane fx:id="addEmployeePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="781.0">
          <center>
             <VBox fx:id="RegisterPane1" alignment="CENTER" prefHeight="443.0" prefWidth="357.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
@@ -278,13 +128,174 @@
                         <RadioButton fx:id="radio_admin" mnemonicParsing="false" text="Admin" />
                      </children>
                   </HBox>
-                  <Button fx:id="RegisterBtn" defaultButton="true" mnemonicParsing="false" onAction="#RegisterBtn_click" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="Register" textFill="WHITE">
+                  <Button fx:id="RegisterBtn" mnemonicParsing="false" onAction="#RegisterBtn_click" prefHeight="46.0" prefWidth="160.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="Register" textFill="WHITE">
                      <font>
                         <Font name="Tahoma" size="22.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+      <BorderPane fx:id="editInfoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="781.0">
+         <center>
+            <VBox fx:id="RegisterPane" alignment="CENTER" prefHeight="443.0" prefWidth="357.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <BorderPane>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <left>
+                        <ImageView fitHeight="41.0" fitWidth="31.0" onMouseClicked="#BackBtn_click" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../images/back.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                     </left>
+                  </BorderPane>
+                  <Label text="Edit Info" textAlignment="CENTER" textFill="MAROON">
+                     <font>
+                        <Font name="Tahoma" size="35.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="newFirstNameText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="New First Name" style="-fx-background-radius: 8; -fx-border-radius: 8;">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <TextField fx:id="newLastNameText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="Newl last Name" style="-fx-background-radius: 8; -fx-border-radius: 8;">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <PasswordField fx:id="newPasswordText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="New Password" style="-fx-background-radius: 8; -fx-border-radius: 8;">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </PasswordField>
+                  <PasswordField fx:id="newRepPasswordText" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="Repeat New Password" style="-fx-background-radius: 8; -fx-border-radius: 8;">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </PasswordField>
+                  <Button fx:id="submit_btn" mnemonicParsing="false" onAction="#submitInfo" prefHeight="47.0" prefWidth="185.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="Submit" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="22.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="Reset_btn" mnemonicParsing="false" onAction="#ResetInfo" prefHeight="47.0" prefWidth="185.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="Reset" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+      <BorderPane fx:id="settingsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="781.0">
+         <center>
+            <VBox fx:id="RegisterPane2" alignment="CENTER" prefHeight="443.0" prefWidth="357.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Settings" textAlignment="CENTER" textFill="MAROON">
+                     <font>
+                        <Font name="Tahoma" size="35.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="100.0" />
+                     </VBox.margin>
+                  </Label>
+                  <BorderPane>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </BorderPane>
+                  <Button fx:id="go_to_editInfo" mnemonicParsing="false" onAction="#goToEditInfo" prefHeight="47.0" prefWidth="185.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="Edit Info" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="22.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="go_to_addEmployee" disable="true" mnemonicParsing="false" onAction="#goToAddEmployee" prefHeight="47.0" prefWidth="185.0" style="-fx-background-color: maroon; -fx-background-radius: 8;" text="Add Employee" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="22.0" />
+                     </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
