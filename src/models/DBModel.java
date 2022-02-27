@@ -93,6 +93,26 @@ public class DBModel {
             e.printStackTrace();
         }
     }
+    public void updateUserInfo(String userName,String firstName,String lastName,String password){
+        try {
+            Statement statement = con.createStatement();
+            String sql=String.format("select Count(username) as count from client where username='%s'", userName);
+            ResultSet rs=statement.executeQuery(sql);
+            rs.next();
+            boolean isClient =rs.getInt("count")==1;
+            if(isClient){
+                sql=String.format("update client set firstname='%s',lastname='%s',password='%s' where username='%s'",firstName,lastName,password,userName);
+            }
+            else{
+                sql=String.format("update employee set firstname='%s',lastname='%s',password='%s' where username='%s'",firstName,lastName,password,userName);
+            }
+            statement.execute(sql);
+            statement.close();
+            System.out.println("Successfully Updated UserInfo");
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public User SignIn(String userName,String password){

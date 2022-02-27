@@ -19,6 +19,13 @@ public abstract class User {
 		return username;
 		
 	}
+	public  String getFirstName() {
+		return FirstName;
+
+	}
+	public  String getLastName() {
+		return LastName;
+	}
 
 	public  String getpassword() {
 		return password;
@@ -31,22 +38,8 @@ public abstract class User {
 	}
 	
 	public abstract Boolean isAdmin();
-	
-	private void Setpassword(String pw) {
-		password = pw;
-	}
-	
-	private void Setname(String fn, String ln) {
-		FirstName = fn;
-		LastName = ln;
-		
-	}
-	
-	public void EditInfo(String username,String password, String FN,String LN) {
-		Setpassword(password);
-		Setname(FN, LN);
-		
-	}
+
+
 	
 	
 }

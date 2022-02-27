@@ -85,7 +85,10 @@ public class MainMenuController {
 
     @FXML
     void SettingsBtn_click(ActionEvent event) throws IOException {
-
+        Parent settings;
+        settings = FXMLLoader.load(getClass().getResource("../resources/views/Settings.fxml"));
+        content.getChildren().clear();
+        content.getChildren().add(settings);
     }
 
 }
