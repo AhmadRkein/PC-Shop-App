@@ -82,10 +82,11 @@ public class SettingsController {
 
     @FXML
     public void initialize(){
+        go_to_addEmployee.setManaged(false);
         if(CurrentUser.getUser() instanceof Employee){
             Employee employee=(Employee) CurrentUser.getUser();
-            if(!employee.isAdmin()){
-            go_to_addEmployee.setManaged(false);}
+            if(employee.isAdmin()){
+            go_to_addEmployee.setManaged(true);}
         }
         settingsPane.toFront();
         newFirstNameText.setText(CurrentUser.getUser().getFirstName());
