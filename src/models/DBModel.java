@@ -22,9 +22,9 @@ public class DBModel {
         return _instance;
     }
     private static Connection createConnection() {
-        String server = "localhost";  //replace
-        String username="user1";                  //with
-        String password="zoom123";         //your own info
+        String server = "nasser-aspiree5576g";  //replace
+        String username="SA";                  //with
+        String password="Ameno1234@";         //your own info
         int port = 1433;
         String database = "PcShop";
         String jdbcurl;
@@ -48,13 +48,19 @@ public class DBModel {
         }
         return con;
     }
-    public boolean checkUserName(String userName ){
+    public boolean checkUserName(String userName){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("select Count(username) as count from client where username='%s'",userName);
+              String  sql = String.format("select Count(username) as count from client where username='%s'", userName);
             ResultSet rs=statement.executeQuery(sql);
             rs.next();
             boolean isAvailable =rs.getInt("count")==0;
+            if(isAvailable){
+                sql = String.format("select Count(username) as count from employee where username='%s'", userName);
+                rs=statement.executeQuery(sql);
+                rs.next();
+                isAvailable =rs.getInt("count")==0;
+            }
             statement.close();
             return isAvailable;
         }catch (SQLException e) {
@@ -76,10 +82,10 @@ public class DBModel {
     }
 
 
-    public void RegisterEmployee(String userName,String password,String firstName,String lastName ){
+    public void RegisterEmployee(String userName,String password,String firstName,String lastName,int isAdmin ){
         try {
             Statement statement = con.createStatement();
-            String sql=String.format("insert int employee values ('%s','%s','%s','%s')",userName,password,firstName,lastName);
+            String sql=String.format("insert into employee values ('%s','%s','%s','%s',%d)",userName,password,firstName,lastName,isAdmin);
             statement.execute(sql);
             statement.close();
             System.out.println("Successfully added Employee");
@@ -87,15 +93,35 @@ public class DBModel {
             e.printStackTrace();
         }
     }
+    public void updateUserInfo(String userName,String firstName,String lastName,String password){
+        try {
+            Statement statement = con.createStatement();
+            String sql=String.format("select Count(username) as count from client where username='%s'", userName);
+            ResultSet rs=statement.executeQuery(sql);
+            rs.next();
+            boolean isClient =rs.getInt("count")==1;
+            if(isClient){
+                sql=String.format("update client set firstname='%s',lastname='%s',password='%s' where username='%s'",firstName,lastName,password,userName);
+            }
+            else{
+                sql=String.format("update employee set firstname='%s',lastname='%s',password='%s' where username='%s'",firstName,lastName,password,userName);
+            }
+            statement.execute(sql);
+            statement.close();
+            System.out.println("Successfully Updated UserInfo");
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
-    public User SignIn(String userName,String password){//returns 1 for client, 2 for employee, 0 if no user exist
+    public User SignIn(String userName,String password){
         try {
             Statement statement = con.createStatement();
             String sql=String.format("select * from client where username='%s' AND password='%s'",userName,password);
             ResultSet rs= statement.executeQuery(sql);
             if(rs.next()){
-//                return 1;//client
+//                //client
                 String fn = rs.getString("firstName").strip();
                 String ln = rs.getString("lastName").strip();
                 statement.close();
@@ -105,7 +131,7 @@ public class DBModel {
                 sql=String.format("select * from employee where userName='%s' AND password='%s'",userName,password);
                 rs=statement.executeQuery(sql);
                 if(rs.next()){
-//                  return 2;//employee
+                    //employee
                     String fn = rs.getString("firstName").strip();
                     String ln = rs.getString("lastName").strip();
                     Boolean isAdmin = rs.getBoolean("isAdmin");

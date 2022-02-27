@@ -43,5 +43,3 @@ insert into hardDisk VALUES('WD BLUE', 'Western Digital', 70, 500)
 insert into hardDisk VALUES('BarraCuda', 'Seagate', 270, 8000)
 insert into hardDisk VALUES('Canvio', 'Toshiba', 80, 1000)
 insert into hardDisk VALUES('FireCuda', 'SeaGate', 229.99, 2048)
-
-
