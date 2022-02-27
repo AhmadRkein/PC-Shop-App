@@ -140,8 +140,15 @@
                         <Font size="38.0" />
                      </font>
                   </Label>
-                  <Button layoutX="269.0" layoutY="354.0" mnemonicParsing="false" onAction="#SaveInfo" prefHeight="41.0" prefWidth="79.0" text="save" />
-                  <Button layoutX="412.0" layoutY="354.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="72.0" text="Button" />
+                  <Button layoutX="263.0" layoutY="308.0" mnemonicParsing="false" onAction="#SaveInfo" prefHeight="52.0" prefWidth="86.0" style="-fx-background-color: #800000;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Button>
+                  <Button layoutX="398.0" layoutY="308.0" mnemonicParsing="false" onAction="#SaveInfo" prefHeight="52.0" prefWidth="86.0" style="-fx-background-color: #800000;" text="Add" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
          </children>
