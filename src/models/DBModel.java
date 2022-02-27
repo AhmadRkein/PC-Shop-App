@@ -48,7 +48,7 @@ public class DBModel {
         }
         return con;
     }
-    public boolean checkUserName(String userName,String type ){
+    public boolean checkUserName(String userName){
         try {
             Statement statement = con.createStatement();
               String  sql = String.format("select Count(username) as count from client where username='%s'", userName);

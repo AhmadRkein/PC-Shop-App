@@ -82,7 +82,7 @@ public class addEmployeeController {
         RegRepPasswordText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
         RegLastNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
         RegFirstNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;");
-        boolean isAvailable=dbModel.checkUserName(userName,"employee");
+        boolean isAvailable=dbModel.checkUserName(userName);
         if(userName.equals("")|| !isAvailable) {
             RegUserNameText.setStyle("-fx-background-radius:8;-fx-border-radius:8;-fx-border-color:red;");
         }
