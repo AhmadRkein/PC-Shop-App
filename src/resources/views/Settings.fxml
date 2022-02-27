@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingsController">
+   <children>
+      <GridPane prefHeight="600.0" prefWidth="1000.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="494.0" minWidth="10.0" prefWidth="240.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="771.0" minWidth="10.0" prefWidth="760.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="447.0" minHeight="10.0" prefHeight="186.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="439.0" minHeight="10.0" prefHeight="414.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <left>
+                  
+                           </left>
+                           <center>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+            <BorderPane prefHeight="248.0" prefWidth="240.0" style="-fx-background-color: #800000;">
+               <center>
+
+               </center>
+               <bottom>
+                  <Label fx:id="NameID" alignment="TOP_CENTER" style="-fx-padding: 5; -fx-border-radius: 8; -fx-background-color: white; -fx-background-radius: 5;" text="Name" textFill="#f5a433" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </bottom>
+            </BorderPane>
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #800000;" GridPane.rowIndex="1">
+               <children>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="220.0" style="-fx-background-color: #800000;" text="Main Menu" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets top="70.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="225.0" style="-fx-background-color: #800000;" text="Pc Builder" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="225.0" style="-fx-background-color: #800000;" text="Settings" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="225.0" style="-fx-background-color: #800000;" text="Log Out" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <TextField fx:id="FirstNameID" layoutX="255.0" layoutY="30.0" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="First Name" style="-fx-background-radius: 8; -fx-border-radius: 8;">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <TextField fx:id="LastNameID" layoutX="255.0" layoutY="99.0" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="Last Name" style="-fx-background-radius: 8; -fx-border-radius: 8;">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <TextField fx:id="PsswordID" layoutX="255.0" layoutY="166.0" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="password" style="-fx-background-radius: 8; -fx-border-radius: 8;">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <TextField layoutX="255.0" layoutY="232.0" maxWidth="229.0" prefHeight="41.0" prefWidth="229.0" promptText="repeat password" style="-fx-background-radius: 8; -fx-border-radius: 8;">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <Label layoutX="-1.0" layoutY="-1.0" text="Settings" textFill="MAROON">
+                     <font>
+                        <Font size="38.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="269.0" layoutY="354.0" mnemonicParsing="false" onAction="#SaveInfo" prefHeight="41.0" prefWidth="79.0" text="save" />
+                  <Button layoutX="412.0" layoutY="354.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="72.0" text="Button" />
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
