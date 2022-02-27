@@ -51,17 +51,16 @@ public class DBModel {
     public boolean checkUserName(String userName,String type ){
         try {
             Statement statement = con.createStatement();
-            String sql=null;
-            if(type.equals("client")) {
-                sql = String.format("select Count(username) as count from client where username='%s'", userName);
-            }
-            else if(type.equals("employee")){
-                sql = String.format("select Count(username) as count from employee where username='%s'", userName);
-            }
+              String  sql = String.format("select Count(username) as count from client where username='%s'", userName);
             ResultSet rs=statement.executeQuery(sql);
             rs.next();
             boolean isAvailable =rs.getInt("count")==0;
-            statement.close();
+            if(isAvailable){
+                sql = String.format("select Count(username) as count from employee where username='%s'", userName);
+                rs=statement.executeQuery(sql);
+                rs.next();
+                isAvailable =rs.getInt("count")==0;
+            }
             statement.close();
             return isAvailable;
         }catch (SQLException e) {
