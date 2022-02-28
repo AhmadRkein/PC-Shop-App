@@ -13,14 +13,6 @@ public class Employee extends User{
 		isadmin = isAdmin;
 	}
 
-	public void AddProduct() {
-		
-	}
-	
-	public void EditProduct() {
-		
-	}
-
 	@Override
 	public Boolean isAdmin() {
 		// TODO Auto-generated method stub

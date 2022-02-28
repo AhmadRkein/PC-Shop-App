@@ -5,12 +5,6 @@ public class Client extends User {
 		super(un, pw, fn,ln);
 	}
 	
-	
-	public void BuyProduct() {
-		
-	}
-
-
 	@Override
 	public Boolean isAdmin() {
 		return false;

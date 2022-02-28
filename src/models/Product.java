@@ -4,10 +4,10 @@ import javafx.scene.image.Image;
 public abstract class Product {
 		private int Id;
 		private String Name;
-		private String ProductType;
 		private String Brand;
 		private float Price;
 		private Image image;
+
 		public int getId() {
 			return Id;
 		}
@@ -19,12 +19,6 @@ public abstract class Product {
 		}
 		public void setName(String name) {
 			Name = name;
-		}
-		public String getProductType() {
-			return ProductType;
-		}
-		public void setProductType(String productType) {
-			ProductType = productType;
 		}
 		public String getBrand() {
 			return Brand;
