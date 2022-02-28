@@ -18,5 +18,6 @@
     <orderEntry type="library" name="mssql-jdbc-9.4.1.jre16" level="project" />
     <orderEntry type="library" name="javafx" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="javafx" level="project" />
   </component>
 </module>
